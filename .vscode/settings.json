@@ -1,0 +1,6 @@
+{
+    "editor.formatOnSave": true,
+    "javascript.format.enable": false,
+    "eslint.autoFixOnSave": true,
+    "eslint.alwaysShowStatus": true
+}

@@ -9,7 +9,9 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
+    "dotenv": "^6.1.0",
     "gatsby": "^2.0.33",
+    "gatsby-source-wordpress": "^3.0.17",
     "react": "^16.5.1",
     "react-dom": "^16.5.1"
   }

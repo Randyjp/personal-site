@@ -7,18 +7,12 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: 'gatsby-source-wordpress',
+      resolve: 'gatsby-source-filesystem',
       options: {
-        baseUrl: process.env.WP_URL,
-        protocol: 'http',
-        hostingWPCOM: false,
-        useACF: true,
-        auth: {
-          htaccess_user: process.env.WP_USERNAME,
-          htaccess_pass: process.env.WP_PASSWORD,
-          htaccess_sendImmediately: false,
-        },
+        name: 'content',
+        path: `${__dirname}/src/content/`,
       },
     },
+    'gatsby-transformer-remark'
   ],
 };

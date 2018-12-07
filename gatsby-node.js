@@ -45,3 +45,19 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     });
   }
 };
+
+// exports.onCreateWebpackConfig = ({
+//   stage,
+//   getConfig,
+//   rules,
+//   loaders,
+//   actions,
+// }) => {
+//   actions.setWebpackConfig({
+//     resolve: {
+//       alias: {
+//         './_variables.sass': path.resolve(__dirname, 'src')
+//       },
+//     },
+//   });
+// };

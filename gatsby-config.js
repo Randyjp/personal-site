@@ -13,6 +13,7 @@ module.exports = {
         path: `${__dirname}/src/content/`,
       },
     },
-    'gatsby-transformer-remark'
+    'gatsby-transformer-remark',
+    'gatsby-plugin-sass'
   ],
 };

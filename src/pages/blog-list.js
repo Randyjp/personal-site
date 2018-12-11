@@ -48,6 +48,9 @@ export const query = graphql`
             title
             author
             date
+            attachments {
+              publicURL
+            }
           }
           fields {
             slug

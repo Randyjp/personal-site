@@ -14,6 +14,7 @@ module.exports = {
       },
     },
     'gatsby-transformer-remark',
+    'gatsby-remark-smartypants',
     'gatsby-plugin-sass'
   ],
 };

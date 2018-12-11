@@ -8,16 +8,12 @@ const BlongEntryList = ({ blog }) => {
   const {
     timeToRead,
     fields: { slug },
-    frontmatter: { title, date },
+    frontmatter: { title, date, attachments },
   } = blog;
-
   return (
     <Link to={slug}>
       <Card>
-        <Card.Image
-          size={128}
-          src="https://assets.goodstatic.com/s3/magazine/others/meta/GoodLogo2.png"
-        />
+        <Card.Image size={128} src={attachments[0].publicURL} />
         <Card.Content>
           <Content>
             {title} ~ <span>{timeToRead} minutes read</span> <br />

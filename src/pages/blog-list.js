@@ -30,6 +30,7 @@ BlogList.propTypes = {
           title: PropTypes.string.isRequired,
           author: PropTypes.string.isRequired,
           date: PropTypes.string.isRequired,
+          attachments: PropTypes.arrayOf(PropTypes.object).isRequired,
         }).isRequired,
       }).isRequired,
       fields: PropTypes.shape({

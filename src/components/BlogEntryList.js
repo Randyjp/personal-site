@@ -32,6 +32,7 @@ BlongEntryList.propTypes = {
       title: PropTypes.string.isRequired,
       author: PropTypes.array.isRequired,
       date: PropTypes.string.isRequired,
+      attachments: PropTypes.arrayOf(PropTypes.object).isRequired,
     }).isRequired,
     fields: PropTypes.shape({
       slug: PropTypes.string.isRequired,

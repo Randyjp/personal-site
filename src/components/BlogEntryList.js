@@ -13,7 +13,7 @@ const BlongEntryList = ({ blog }) => {
   return (
     <Link to={slug}>
       <Card>
-        <Card.Image size={128} src={attachments[0].publicURL} />
+        <Card.Image size="4by3" src={attachments[0].publicURL} />
         <Card.Content>
           <Content>
             {title} ~ <span>{timeToRead} minutes read</span> <br />

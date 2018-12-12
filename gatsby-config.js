@@ -13,8 +13,22 @@ module.exports = {
         path: `${__dirname}/src/content/`,
       },
     },
-    'gatsby-transformer-remark',
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 590,
+            },
+          },
+        ],
+      },
+    },
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     'gatsby-remark-smartypants',
-    'gatsby-plugin-sass'
+    'gatsby-plugin-sass',
   ],
 };

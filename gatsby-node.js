@@ -8,7 +8,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     const slug = createFilePath({
       node,
       getNode,
-      basePath: 'src/content',
       trailingSlash: false,
     });
     createNodeField({

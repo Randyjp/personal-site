@@ -1,13 +1,13 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import Columns from 'react-bulma-components/lib/components/columns';
-import PropTypes from 'prop-types';
-import BlongEntryList from '../components/BlogEntryList';
-import BasicLayout from '../components/BasicLayout';
+import React from "react";
+import { graphql } from "gatsby";
+import Columns from "react-bulma-components/lib/components/columns";
+import PropTypes from "prop-types";
+import BlongEntryList from "../components/BlogEntryList";
+import BasicLayout from "../components/BasicLayout";
 
 const BlogList = ({ data }) => {
   const blogs = data.allMarkdownRemark.edges;
-
+  console.log(blogs);
   return (
     <BasicLayout
       render={() =>
@@ -30,14 +30,14 @@ BlogList.propTypes = {
           title: PropTypes.string.isRequired,
           author: PropTypes.string.isRequired,
           date: PropTypes.string.isRequired,
-          attachments: PropTypes.arrayOf(PropTypes.object).isRequired,
-        }).isRequired,
+          attachments: PropTypes.arrayOf(PropTypes.object).isRequired
+        }).isRequired
       }).isRequired,
       fields: PropTypes.shape({
-        slug: PropTypes.string.isRequired,
-      }).isRequired,
-    }),
-  }).isRequired,
+        slug: PropTypes.string.isRequired
+      }).isRequired
+    })
+  }).isRequired
 };
 
 export const query = graphql`

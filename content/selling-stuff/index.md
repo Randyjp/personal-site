@@ -3,7 +3,7 @@ title: Why did we build React?
 author: [petehunt]
 date: "08-12-2018"
 attachments:
-  - "./featured.jpgr"
+  - "./featured.png"
 ---
 
 There are a lot of JavaScript MVC frameworks out there. Why did we build React

@@ -34,7 +34,10 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     graphql(`
       {
-        allMarkdownRemark {
+        allMarkdownRemark(
+          sort: { fields: [frontmatter___date], order: DESC }
+          limit: 1000
+        ) {
           edges {
             node {
               fields {
@@ -48,15 +51,20 @@ exports.createPages = ({ graphql, actions }) => {
       if (result.errors) {
         reject(result.errors);
       }
-      const blogPost = result.data.allMarkdownRemark.edges;
+      const blogPosts = result.data.allMarkdownRemark.edges;
 
-      blogPost.forEach(({ node }) => {
+      blogPosts.forEach(({ node }, index) => {
+        const previous = index > 0 ? blogPosts[index - 1].node : null;
+        const next =
+          blogPosts.length - (index + 1) > 0 ? blogPosts[index + 1].node : null;
         createPage({
           path: node.fields.slug,
           component: path.resolve('./src/templates/blog-post.js'),
           context: {
             // data passed here will be availble for the template for page queries
             slug: node.fields.slug,
+            previous,
+            next,
           },
         });
       });

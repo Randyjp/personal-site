@@ -45,7 +45,12 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     `).then(result => {
-      result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      if (result.errors) {
+        reject(result.errors);
+      }
+      const blogPost = result.data.allMarkdownRemark.edges;
+
+      blogPost.forEach(({ node }) => {
         createPage({
           path: node.fields.slug,
           component: path.resolve('./src/templates/blog-post.js'),

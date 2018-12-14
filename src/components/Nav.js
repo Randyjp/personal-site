@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'gatsby';
 import Navbar from 'react-bulma-components/lib/components/navbar';
 
 class Nav extends Component {
@@ -15,9 +16,19 @@ class Nav extends Component {
         </Navbar.Brand>
         <Navbar.Menu>
           <Navbar.Container position="end">
-            <Navbar.Item href="#">About</Navbar.Item>
-            <Navbar.Item href="#">Blog</Navbar.Item>
-            <Navbar.Item href="#">Resume</Navbar.Item>
+            {/* adds classname navbar-item to use bulma styles on gatsby links */}
+            <Link className="navbar-item" to="#">
+              About
+            </Link>
+            <Link className="navbar-item" to="#">
+              Services
+            </Link>
+            <Link className="navbar-item" to="/blog-list">
+              Blog
+            </Link>
+            <Link className="navbar-item" to="#">
+              Resume
+            </Link>
           </Navbar.Container>
         </Navbar.Menu>
       </Navbar>

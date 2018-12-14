@@ -3,7 +3,7 @@ require('dotenv').config();
 module.exports = {
   siteMetadata: {
     title: 'Randy Perez professional site and personal blog.',
-    subtitle: 'My thoughts about software development',
+    subtitle: 'My thoughts about software development'
   },
   plugins: [
     {
@@ -24,6 +24,12 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-typography',
+      options: {
+        pathToConfigModule: 'src/utils/typography'
       },
     },
     'gatsby-plugin-sharp',

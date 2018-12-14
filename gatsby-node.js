@@ -1,19 +1,19 @@
-const path = require('path');
-const { createFilePath } = require('gatsby-source-filesystem');
+const path = require("path");
+const { createFilePath } = require("gatsby-source-filesystem");
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
-  if (node.internal.type === 'MarkdownRemark') {
+  if (node.internal.type === "MarkdownRemark") {
     // creates the slugs based on the file name
     const slug = createFilePath({
       node,
       getNode,
-      trailingSlash: false,
+      trailingSlash: false
     });
     createNodeField({
       node,
-      name: 'slug',
-      value: slug,
+      name: "slug",
+      value: slug
     });
   }
 };
@@ -22,9 +22,9 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
-        './_variables.sass': path.resolve(__dirname, 'src/_variables.sass')
-      },
-    },
+        "./_variables.sass": path.resolve(__dirname, "src/_variables.sass")
+      }
+    }
   });
 };
 
@@ -40,6 +40,9 @@ exports.createPages = ({ graphql, actions }) => {
         ) {
           edges {
             node {
+              frontmatter {
+                title
+              }
               fields {
                 slug
               }
@@ -59,13 +62,13 @@ exports.createPages = ({ graphql, actions }) => {
           blogPosts.length - (index + 1) > 0 ? blogPosts[index + 1].node : null;
         createPage({
           path: node.fields.slug,
-          component: path.resolve('./src/templates/blog-post.js'),
+          component: path.resolve("./src/templates/blog-post.js"),
           context: {
             // data passed here will be availble for the template for page queries
             slug: node.fields.slug,
             previous,
-            next,
-          },
+            next
+          }
         });
       });
       resolve();

@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
-import Columns from 'react-bulma-components/lib/components/columns';
-import Container from 'react-bulma-components/lib/components/container';
-import Section from 'react-bulma-components/lib/components/section';
-import PropTypes from 'prop-types';
-import Nav from './Nav';
+import React, { Fragment } from "react";
+import Columns from "react-bulma-components/lib/components/columns";
+import Container from "react-bulma-components/lib/components/container";
+import Section from "react-bulma-components/lib/components/section";
+import PropTypes from "prop-types";
+import Nav from "./Nav";
 
 const BasicLayout = ({ render }) => (
   <Fragment>
@@ -17,7 +17,7 @@ const BasicLayout = ({ render }) => (
 );
 
 BasicLayout.propTypes = {
-  render: PropTypes.func.isRequired,
+  render: PropTypes.func.isRequired
 };
 
 export default BasicLayout;

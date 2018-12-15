@@ -1,41 +1,47 @@
-require("dotenv").config();
+require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
-    title: "Randy Perez professional site and personal blog.",
-    subtitle: "My thoughts about software development"
+    title: 'Randy Perez professional site and personal blog.',
+    subtitle: 'My thoughts about software development'
   },
   plugins: [
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: "content",
-        path: `${__dirname}/content/`
-      }
+        name: 'content',
+        path: `${__dirname}/content/`,
+      },
     },
     {
-      resolve: "gatsby-transformer-remark",
+      resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
           {
-            resolve: "gatsby-remark-images",
+            resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 590
-            }
+              maxWidth: 590,
+            },
           },
-          "gatsby-remark-copy-linked-files",
-          "gatsby-remark-smartypants"
-        ]
-      }
+          {
+            resolve: 'gatsby-remark-responsive-iframe',
+            options: {
+              wrapperStyle: `margin-bottom: 1.rem`,
+            },
+          },
+          'gatsby-remark-copy-linked-files',
+          'gatsby-remark-smartypants'
+        ],
+      },
     },
     {
-      resolve: "gatsby-plugin-typography",
+      resolve: 'gatsby-plugin-typography',
       options: {
-        pathToConfigModule: "src/utils/typography"
-      }
+        pathToConfigModule: 'src/utils/typography',
+      },
     },
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
-    "gatsby-plugin-sass"
-  ]
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sass',
+  ],
 };

@@ -5,9 +5,9 @@ import Section from 'react-bulma-components/lib/components/section';
 import PropTypes from 'prop-types';
 import Nav from './Nav';
 
-const BasicLayout = ({ render }) => (
+const BasicLayout = ({ render, includeNav }) => (
   <Fragment>
-    <Nav />
+    {includeNav && <Nav />}
     <Section>
       <Container>
         <Columns>{render()}</Columns>
@@ -18,6 +18,11 @@ const BasicLayout = ({ render }) => (
 
 BasicLayout.propTypes = {
   render: PropTypes.func.isRequired,
+  includeNav: PropTypes.bool
 };
+
+BasicLayout.defaultProps = {
+  includeNav: true,
+}
 
 export default BasicLayout;

@@ -1,32 +1,48 @@
 import React, { Fragment } from 'react';
 import { Link, graphql } from 'gatsby';
+import {format} from 'date-fns';
 import PropTypes from 'prop-types';
 import Level from 'react-bulma-components/lib/components/level';
-// eslint-disable-next-line
-import Pagination from "react-bulma-components/lib/components/pagination";
 import Columns from 'react-bulma-components/lib/components/columns';
 import BasicLayout from '../components/BasicLayout';
+import Icon from 'react-bulma-components/lib/components/icon';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faClock} from '@fortawesome/free-solid-svg-icons';
+// eslint-disable-next-line
+import Pagination from "react-bulma-components/lib/components/pagination";
+import Comments from '../components/Comments';
+import {rhythm} from '../utils/typography';
 
 const BlogPost = ({ data, pageContext }) => {
   const {
     html,
-    frontmatter: { title },
+    timeToRead,
+    frontmatter: { title, date },
   } = data.markdownRemark;
-  const { previous, next } = pageContext;
-
+  const { previous, next, slug} = pageContext;
+  const formattedDate = format(new Date(date), 'MMM D, YYYY');
   return (
     <Fragment>
       <BasicLayout
         render={() => (
           <Columns.Column size="three-fifths" offset="one-fifth">
-            <Fragment>
-              <h1>{title}</h1>
+            <article>
+              <header>
+                <h1>{title}</h1>
+                <p style={{
+                  fontSize: rhythm(0.5),
+                  marginTop: rhythm(-4/5)
+                }}><time dateTime={date}>{formattedDate} ~       <Icon color="info">
+        <FontAwesomeIcon icon={faClock} />
+      </Icon><span>{timeToRead} minute{timeToRead > 1 ? 's': ''} read</span></time></p>
+              </header>
               <div dangerouslySetInnerHTML={{ __html: html }} />
-            </Fragment>
+            </article>
           </Columns.Column>
         )}
       />
       <InnerBlogPagination previous={previous} next={next} />
+      <Comments url={`http://localhost:8000/${slug}`} title={title} slug={slug}/>
     </Fragment>
   );
 };
@@ -93,9 +109,11 @@ export const query = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      timeToRead
       frontmatter {
         title
         author
+        date
       }
     }
   }

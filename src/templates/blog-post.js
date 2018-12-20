@@ -1,16 +1,16 @@
-import React, { Fragment } from "react";
-import { Link, graphql } from "gatsby";
-import PropTypes from "prop-types";
-import Level from "react-bulma-components/lib/components/level";
+import React, { Fragment } from 'react';
+import { Link, graphql } from 'gatsby';
+import PropTypes from 'prop-types';
+import Level from 'react-bulma-components/lib/components/level';
 // eslint-disable-next-line
 import Pagination from "react-bulma-components/lib/components/pagination";
-import Columns from "react-bulma-components/lib/components/columns";
-import BasicLayout from "../components/BasicLayout";
+import Columns from 'react-bulma-components/lib/components/columns';
+import BasicLayout from '../components/BasicLayout';
 
 const BlogPost = ({ data, pageContext }) => {
   const {
     html,
-    frontmatter: { title }
+    frontmatter: { title },
   } = data.markdownRemark;
   const { previous, next } = pageContext;
 
@@ -52,26 +52,26 @@ const InnerBlogPagination = ({ previous, next }) => (
 
 InnerBlogPagination.defaultProps = {
   previous: null,
-  next: null
+  next: null,
 };
 
 InnerBlogPagination.propTypes = {
   previous: PropTypes.shape({
     fields: PropTypes.shape({
-      slug: PropTypes.string.isRequired
+      slug: PropTypes.string.isRequired,
     }).isRequired,
     frontmatter: PropTypes.shape({
-      title: PropTypes.string.isRequired
-    }).isRequired
+      title: PropTypes.string.isRequired,
+    }).isRequired,
   }),
   next: PropTypes.shape({
     fields: PropTypes.shape({
-      slug: PropTypes.string.isRequired
+      slug: PropTypes.string.isRequired,
     }).isRequired,
     frontmatter: PropTypes.shape({
-      title: PropTypes.string.isRequired
-    }).isRequired
-  })
+      title: PropTypes.string.isRequired,
+    }).isRequired,
+  }),
 };
 
 BlogPost.propTypes = {
@@ -79,14 +79,14 @@ BlogPost.propTypes = {
     markdownRemark: PropTypes.shape({
       html: PropTypes.string.isRequired,
       frontmatter: PropTypes.shape({
-        title: PropTypes.string.isRequired
-      }).isRequired
-    }).isRequired
+        title: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
   }).isRequired,
   pageContext: PropTypes.shape({
     previous: PropTypes.object,
-    next: PropTypes.object
-  }).isRequired
+    next: PropTypes.object,
+  }).isRequired,
 };
 
 export const query = graphql`

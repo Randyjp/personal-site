@@ -31,14 +31,14 @@ module.exports = {
           },
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants',
-          'gatsby-remark-prismjs'
+          'gatsby-remark-prismjs',
         ],
       },
     },
     {
       resolve: 'gatsby-plugin-typography',
       options: {
-        pathToConfigModule: 'src/utils/typography'
+        pathToConfigModule: 'src/utils/typography',
       },
     },
     'gatsby-plugin-sharp',

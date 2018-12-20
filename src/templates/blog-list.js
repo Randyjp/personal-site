@@ -1,12 +1,11 @@
-import React, { Fragment } from "react";
-import { Link } from "gatsby";
-import Columns from "react-bulma-components/lib/components/columns";
+import React, { Fragment } from 'react';
+import { Link } from 'gatsby';
+import Columns from 'react-bulma-components/lib/components/columns';
 // eslint-disable-next-line
 import Pagination from "react-bulma-components/lib/components/pagination";
-import PropTypes from "prop-types";
-import BlongEntryList from "../components/BlogEntryList";
-import BasicLayout from "../components/BasicLayout";
-import { auto } from "eol";
+import PropTypes from 'prop-types';
+import BlongEntryList from '../components/BlogEntryList';
+import BasicLayout from '../components/BasicLayout';
 
 const BlogList = ({ pageContext }) => {
   console.log(pageContext);
@@ -34,12 +33,12 @@ const BlogList = ({ pageContext }) => {
 };
 
 const BlogPagination = ({ previous, next }) => {
-  const localPrevious = previous === 1 ? "" : previous;
+  const localPrevious = previous === 1 ? '' : previous;
   return (
     <Columns.Column
       size="full"
       style={{
-        marginTop: "60px"
+        marginTop: '60px',
       }}
     >
       <nav
@@ -60,7 +59,7 @@ const BlogPagination = ({ previous, next }) => {
             className="pagination-next is-right"
             to={`/blog-list/${next}`}
             style={{
-              marginLeft: "auto"
+              marginLeft: 'auto',
             }}
           >
             Older Posts →
@@ -73,12 +72,12 @@ const BlogPagination = ({ previous, next }) => {
 
 BlogPagination.propTypes = {
   previous: PropTypes.number,
-  next: PropTypes.number
+  next: PropTypes.number,
 };
 
 BlogPagination.defaultProps = {
   previous: null,
-  next: null
+  next: null,
 };
 
 BlogList.propTypes = {
@@ -94,16 +93,16 @@ BlogList.propTypes = {
               title: PropTypes.string.isRequired,
               author: PropTypes.string.isRequired,
               date: PropTypes.string.isRequired,
-              attachments: PropTypes.arrayOf(PropTypes.object).isRequired
-            }).isRequired
+              attachments: PropTypes.arrayOf(PropTypes.object).isRequired,
+            }).isRequired,
           }).isRequired,
           fields: PropTypes.shape({
-            slug: PropTypes.string.isRequired
-          }).isRequired
-        })
+            slug: PropTypes.string.isRequired,
+          }).isRequired,
+        }),
       }).isRequired
-    )
-  }).isRequired
+    ),
+  }).isRequired,
 };
 
 export default BlogList;

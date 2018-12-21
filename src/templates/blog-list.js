@@ -4,7 +4,7 @@ import Columns from 'react-bulma-components/lib/components/columns';
 // eslint-disable-next-line
 import Pagination from "react-bulma-components/lib/components/pagination";
 import PropTypes from 'prop-types';
-import BlongEntryList from '../components/BlogEntryList';
+import BlogCard from '../components/BlogCard';
 import BasicLayout from '../components/BasicLayout';
 
 const BlogList = ({ pageContext }) => {
@@ -16,8 +16,8 @@ const BlogList = ({ pageContext }) => {
     <BasicLayout
       render={() => {
         const blogs = group.map(blog => (
-          <Columns.Column size="one-quarter" key={blog.node.fields.slug}>
-            <BlongEntryList blog={blog.node} />
+          <Columns.Column size="one-third" key={blog.node.fields.slug}>
+            <BlogCard blog={blog.node} />
           </Columns.Column>
         ));
 

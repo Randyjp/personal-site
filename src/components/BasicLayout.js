@@ -18,11 +18,11 @@ const BasicLayout = ({ render, includeNav }) => (
 
 BasicLayout.propTypes = {
   render: PropTypes.func.isRequired,
-  includeNav: PropTypes.bool
+  includeNav: PropTypes.bool,
 };
 
 BasicLayout.defaultProps = {
   includeNav: true,
-}
+};
 
 export default BasicLayout;

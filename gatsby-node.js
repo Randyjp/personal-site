@@ -79,7 +79,7 @@ exports.createPages = ({ graphql, actions }) => {
         edges: blogPosts,
         createPage,
         pageTemplate: './src/templates/blog-list.js',
-        pageLength: 8,
+        pageLength: 6,
         pathPrefix: 'blog-list',
       });
       resolve();

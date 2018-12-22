@@ -4,6 +4,7 @@ author: [Randy Perez]
 date: "01-08-2016"
 attachments:
   - "./featured.png"
+shortDescription: "Foster and manage innovation to fuel constant growth"
 ---
 
 Use as little or as much React as you need.

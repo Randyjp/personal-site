@@ -42,6 +42,7 @@ exports.createPages = ({ graphql, actions }) => {
                 title
                 author
                 date
+                shortDescription
                 attachments {
                   publicURL
                 }

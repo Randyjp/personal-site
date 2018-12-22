@@ -4,6 +4,7 @@ author: [petehunt]
 date: "08-12-2018"
 attachments:
   - "./featured.png"
+shortDescription: "Trends, insights, and tips to help you become a better programmer."
 ---
 
 There are a lot of JavaScript MVC frameworks out there. Why did we build React

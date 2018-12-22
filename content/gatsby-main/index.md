@@ -4,6 +4,7 @@ author: [Randy Perez]
 date: "01-08-2016"
 attachments:
   - "./featured.png"
+shortDescription: "Make smarter hiring decisions and optimize your recruitment process."
 ---
 
 # gatsbyjs.org

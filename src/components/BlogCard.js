@@ -4,76 +4,71 @@ import Card from 'react-bulma-components/lib/components/card';
 import Content from 'react-bulma-components/lib/components/content';
 import PropTypes from 'prop-types';
 import { format } from 'date-fns';
+import styled from 'styled-components';
 import { rhythm } from '../utils/typography';
+
+const StyledCard = styled(Card)`
+  h1 {
+    color: #4c9cdf;
+    font-size: ${rhythm(4 / 5)};
+    margin-top: ${rhythm(2 / 5)};
+  }
+  .card-content {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+  :hover {
+    background: #0097fe none repeat scroll 0 0;
+    box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.2);
+    color: #fff;
+    h1 {
+      color: #fff;
+    }
+  }
+  height: 100%;
+  transition: box-shadow 0.2s ease-in-out;
+`;
+
+const StyledTime = styled.time`
+  align-self: flex-end;
+  font-size: ${rhythm(1 / 2)};
+`;
 
 const BlogCard = ({ blog }) => {
   const {
-    timeToRead,
     fields: { slug },
-    frontmatter: { title, date, attachments },
+    frontmatter: { title, date, attachments, shortDescription },
   } = blog;
   const formattedDate = format(new Date(date), 'MMM D, YYYY');
 
   return (
     <Link to={slug}>
-      <Card
-        style={{
-          height: '100%',
-        }}
-      >
+      <StyledCard>
         <Card.Image size="4by3" src={attachments[0].publicURL} />
-        <Card.Content
-          style={{
-            paddingBottom: 0,
-            paddingTop: 0,
-          }}
-        >
-          <Content
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-            }}
-          >
-            <time
-              style={{
-                alignSelf: 'flex-end',
-                fontSize: rhythm(1 / 2),
-              }}
-              dateTime={date}
-            >
-              {formattedDate}
-            </time>
-            <h1
-              style={{
-                fontSize: rhythm(1),
-              }}
-            >
-              {title}
-            </h1>
-            {/* <span
-              style={{
-                alignSelf: 'flex-end',
-              }}
-            >
-              {timeToRead} minutes read
-            </span>{' '} */}
-            <br />
+        <Card.Content>
+          <Content>
+            <StyledTime dateTime={date}>{formattedDate}</StyledTime>
+            <h1>{title}</h1>
+            <p>{shortDescription}</p>
           </Content>
         </Card.Content>
-      </Card>
+      </StyledCard>
     </Link>
   );
 };
 
 BlogCard.propTypes = {
   blog: PropTypes.shape({
-    timeToRead: PropTypes.number.isRequired,
     frontmatter: PropTypes.shape({
       title: PropTypes.string.isRequired,
       author: PropTypes.array.isRequired,
       date: PropTypes.string.isRequired,
       attachments: PropTypes.arrayOf(PropTypes.object).isRequired,
+      shortDescription: PropTypes.string.isRequired,
     }).isRequired,
     fields: PropTypes.shape({
       slug: PropTypes.string.isRequired,

@@ -23,7 +23,7 @@ class Nav extends Component {
     return (
       <Container
         style={{
-          marginTop: '1.5rem'
+          marginTop: '1.5rem',
         }}
       >
         <Box>
@@ -41,11 +41,30 @@ class Nav extends Component {
             </Navbar.Brand>
             <Navbar.Menu>
               <Navbar.Container position="end">
-                {/* adds classname navbar-item to use bulma styles on gatsby links */}
-                <NavItemLink name="About" icon={faAddressCard} to="#" />
-                <NavItemLink name="Services" icon={faKeyboard} to="#" />
-                <NavItemLink name="Blog" icon={faBlog} to="/blog-list" />
-                <NavItemLink name="Resume" icon={faFilePdf} to="#" />
+                <NavItemLink
+                  name="About"
+                  icon={faAddressCard}
+                  color="green"
+                  to="#"
+                />
+                <NavItemLink
+                  name="Services"
+                  icon={faKeyboard}
+                  color="grey"
+                  to="#"
+                />
+                <NavItemLink
+                  name="Blog"
+                  icon={faBlog}
+                  color="orange"
+                  to="/blog-list"
+                />
+                <NavItemLink
+                  name="Resume"
+                  icon={faFilePdf}
+                  color="red"
+                  to="#"
+                />
               </Navbar.Container>
             </Navbar.Menu>
           </Navbar>
@@ -55,17 +74,12 @@ class Nav extends Component {
   }
 }
 
-const NavItemLink = ({ name, icon, to }) => (
+const NavItemLink = ({ name, icon, color, to }) => (
   <Link className="navbar-item" activeClassName="is-active" to={to}>
-    <span
-      style={{
-        marginRight: '0.25rem',
-      }}
-    >
-      <Icon color="info">
-        <FontAwesomeIcon icon={icon} />
-      </Icon>
-    </span>
+    {/* adds classname navbar-item to use bulma styles on gatsby links */}
+    <Icon>
+      <FontAwesomeIcon icon={icon} color={color} />
+    </Icon>
     <span>{name}</span>
   </Link>
 );
@@ -78,6 +92,7 @@ NavItemLink.propTypes = {
     prefix: PropTypes.string.isRequired,
   }).isRequired,
   to: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
 };
 
 export default Nav;

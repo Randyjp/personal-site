@@ -3,6 +3,7 @@ import Bio from '../components/Bio';
 
 export default () => (
   <div>
-    Hello world! <Bio />
+    {/* Hello world!  */}
+    <Bio />
   </div>
 );

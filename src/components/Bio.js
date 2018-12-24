@@ -3,6 +3,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import Image from 'gatsby-image';
 import styled from 'styled-components';
 import Icon from 'react-bulma-components/lib/components/icon';
+import Columns from 'react-bulma-components/lib/components/columns';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faTwitter,
@@ -32,24 +33,60 @@ const Bio = () => (
     query={avatarQuery}
     render={({ avatar }) => (
       <>
-        <StyledImage fixed={avatar.childImageSharp.fixed} />
-        <p>Software Engineer from the Dominican Republic</p>
-        <ul>
-          <a href="https://github.com/randyjp">
-            <Icon>
-              <FontAwesomeIcon icon={faGithub} />
-            </Icon>
-          </a>
-          <Icon>
-            <FontAwesomeIcon icon={faTwitter} />
-          </Icon>
-          <Icon>
-            <FontAwesomeIcon icon={faLinkedin} />
-          </Icon>
-          <Icon>
-            <FontAwesomeIcon icon={faStackOverflow} />
-          </Icon>
-        </ul>
+        <hr />
+        <Columns>
+          <Columns.Column>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </Columns.Column>
+          <Columns.Column>
+            <StyledImage fixed={avatar.childImageSharp.fixed} />
+          </Columns.Column>
+          <Columns.Column>
+            <ul>
+              <a
+                href="https://github.com/randyjp"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon size="large">
+                  <FontAwesomeIcon icon={faGithub} size="2x" />
+                </Icon>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/randyperez"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon size="large">
+                  <FontAwesomeIcon icon={faLinkedin} size="2x" />
+                </Icon>
+              </a>
+              <a
+                href="https://twitter.com/Randy_Perez"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon size="large">
+                  <FontAwesomeIcon icon={faTwitter} size="2x" />
+                </Icon>
+              </a>
+              <a
+                href="https://stackoverflow.com/users/3271569/randyjp?tab=profile"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon size="large">
+                  <FontAwesomeIcon icon={faStackOverflow} size="2x" />
+                </Icon>
+              </a>
+            </ul>
+          </Columns.Column>
+        </Columns>
       </>
     )}
   />

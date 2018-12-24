@@ -8,7 +8,6 @@ import BlogCard from '../components/BlogCard';
 import BasicLayout from '../components/BasicLayout';
 
 const BlogList = ({ pageContext }) => {
-  console.log(pageContext);
   const { group, index, pageCount } = pageContext;
   const next = index < pageCount ? index + 1 : null;
   const previous = index > 1 ? index - 1 : null;

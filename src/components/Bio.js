@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import Image from 'gatsby-image';
 import styled from 'styled-components';
@@ -30,6 +31,10 @@ const StyledList = styled.ul`
   }
 `;
 
+const StyledP = styled.p`
+  text-align: justify;
+`;
+
 const avatarQuery = graphql`
   query AvatarQuery {
     avatar: file(relativePath: { eq: "assets/avatar.png" }) {
@@ -41,6 +46,16 @@ const avatarQuery = graphql`
     }
   }
 `;
+
+const BioSocialLink = ({ icon, iconSize, url, color, containerSize }) => (
+  <li>
+    <a href={url} target="_blank" rel="noopener noreferrer">
+      <Icon size={containerSize}>
+        <FontAwesomeIcon icon={icon} size={iconSize} color={color} />
+      </Icon>
+    </a>
+  </li>
+);
 
 const Bio = () => (
   <StaticQuery
@@ -54,71 +69,63 @@ const Bio = () => (
             </CenteredColumn>
             <Columns.Column size="three-quarter">
               <h3>Randy Perez</h3>
-              <p>
+              <StyledP>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
                 nisi ut aliquip ex ea commodo consequat.
-              </p>
+              </StyledP>
             </Columns.Column>
           </Columns>
         </Columns.Column>
         <Columns.Column size={2} />
         <CenteredColumn>
           <StyledList>
-            <li>
-              <a
-                href="https://github.com/randyjp"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Icon size="large">
-                  <FontAwesomeIcon icon={faGithub} size="2x" color="black" />
-                </Icon>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.linkedin.com/in/randyperez"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Icon size="large">
-                  <FontAwesomeIcon icon={faLinkedin} size="2x" color="black" />
-                </Icon>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://twitter.com/Randy_Perez"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Icon size="large">
-                  <FontAwesomeIcon icon={faTwitter} size="2x" color="black" />
-                </Icon>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://stackoverflow.com/users/3271569/randyjp?tab=profile"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Icon size="large">
-                  <FontAwesomeIcon
-                    icon={faStackOverflow}
-                    size="2x"
-                    color="black"
-                  />
-                </Icon>
-              </a>
-            </li>
+            <BioSocialLink
+              icon={faGithub}
+              iconSize="2x"
+              url="https://github.com/randyjp"
+              color="#302F2F"
+              containerSize="large"
+            />
+            <BioSocialLink
+              icon={faLinkedin}
+              iconSize="2x"
+              url="https://www.linkedin.com/in/randyperez"
+              color="#3670AE"
+              containerSize="large"
+            />
+            <BioSocialLink
+              icon={faTwitter}
+              iconSize="2x"
+              url="https://twitter.com/Randy_Perez"
+              color="#50A1F2"
+              containerSize="large"
+            />
+            <BioSocialLink
+              icon={faStackOverflow}
+              iconSize="2x"
+              url="https://stackoverflow.com/users/3271569/randyjp?tab=profile"
+              color="#EF8023"
+              containerSize="large"
+            />
           </StyledList>
         </CenteredColumn>
       </>
     )}
   />
 );
+
+BioSocialLink.propTypes = {
+  icon: PropTypes.shape({
+    icon: PropTypes.array.isRequired,
+    iconName: PropTypes.string.isRequired,
+    prefix: PropTypes.string.isRequired,
+  }).isRequired,
+  iconSize: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
+  containerSize: PropTypes.string.isRequired,
+};
 
 export default Bio;

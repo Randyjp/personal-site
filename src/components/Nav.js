@@ -58,7 +58,7 @@ class Nav extends Component {
                       name="About"
                       icon={faAddressCard}
                       color="green"
-                      to="#"
+                      to="/about"
                     />
                     <NavItemLink
                       name="Services"

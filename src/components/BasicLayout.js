@@ -5,13 +5,19 @@ import Section from 'react-bulma-components/lib/components/section';
 import PropTypes from 'prop-types';
 import Nav from './Nav';
 
-const BasicLayout = ({ render, includeNav }) => (
+const BasicLayout = ({ render, includeNav, StyledContainer }) => (
   <Fragment>
     {includeNav && <Nav />}
     <Section>
-      <Container>
-        <Columns>{render()}</Columns>
-      </Container>
+      {StyledContainer ? (
+        <StyledContainer>
+          <Columns>{render()}</Columns>
+        </StyledContainer>
+      ) : (
+        <Container>
+          <Columns>{render()}</Columns>
+        </Container>
+      )}
     </Section>
   </Fragment>
 );

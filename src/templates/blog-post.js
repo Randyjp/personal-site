@@ -12,6 +12,7 @@ import Pagination from "react-bulma-components/lib/components/pagination";
 import BasicLayout from '../components/BasicLayout';
 import Comments from '../components/Comments';
 import { rhythm } from '../utils/typography';
+import Bio from '../components/Bio';
 
 const BlogPost = ({ data, pageContext }) => {
   const {
@@ -25,30 +26,36 @@ const BlogPost = ({ data, pageContext }) => {
     <Fragment>
       <BasicLayout
         render={() => (
-          <Columns.Column size="three-fifths" offset="one-fifth">
-            <article>
-              <header>
-                <h1>{title}</h1>
-                <p
-                  style={{
-                    fontSize: rhythm(0.5),
-                    marginTop: rhythm(-4 / 5),
-                  }}
-                >
-                  <time dateTime={date}>
-                    {formattedDate} ~{' '}
-                    <Icon color="info">
-                      <FontAwesomeIcon icon={faClock} />
-                    </Icon>
-                    <span>
-                      {timeToRead} minute{timeToRead > 1 ? 's' : ''} read
-                    </span>
-                  </time>
-                </p>
-              </header>
-              <div dangerouslySetInnerHTML={{ __html: html }} />
-            </article>
-          </Columns.Column>
+          <>
+            <Columns.Column size="three-fifths" offset="one-fifth">
+              <article>
+                <header>
+                  <h1>{title}</h1>
+                  <p
+                    style={{
+                      fontSize: rhythm(0.5),
+                      marginTop: rhythm(-4 / 5),
+                    }}
+                  >
+                    <time dateTime={date}>
+                      {formattedDate} ~{' '}
+                      <Icon color="info">
+                        <FontAwesomeIcon icon={faClock} />
+                      </Icon>
+                      <span>
+                        {timeToRead} minute{timeToRead > 1 ? 's' : ''} read
+                      </span>
+                    </time>
+                  </p>
+                </header>
+                <div dangerouslySetInnerHTML={{ __html: html }} />
+              </article>
+            </Columns.Column>
+            <Columns.Column size={12}>
+              <hr />
+            </Columns.Column>
+            <Bio />
+          </>
         )}
       />
       <InnerBlogPagination previous={previous} next={next} />

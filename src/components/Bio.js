@@ -22,6 +22,14 @@ const CenteredColumn = styled(Columns.Column)`
   align-items: center;
 `;
 
+const StyledList = styled.ul`
+  list-style: none;
+
+  li {
+    display: inline;
+  }
+`;
+
 const avatarQuery = graphql`
   query AvatarQuery {
     avatar: file(relativePath: { eq: "assets/avatar.png" }) {
@@ -39,67 +47,75 @@ const Bio = () => (
     query={avatarQuery}
     render={({ avatar }) => (
       <>
-        <hr />
-        <Columns>
-          {/* <Columns.Column size="three-fifths" offset="one-fifth"> */}
-          <Columns.Column size={8} offset={2}>
-            <Columns>
-              <CenteredColumn size="one-quarter">
-                <StyledImage fixed={avatar.childImageSharp.fixed} />
-              </CenteredColumn>
-              <Columns.Column size="three-quarter">
-                <h3>Randy Perez</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-              </Columns.Column>
-            </Columns>
-          </Columns.Column>
-          <Columns.Column size={2} />
-          <Columns.Column size={8} offset={4}>
-            <ul>
+        <Columns.Column size={8} offset={2}>
+          <Columns>
+            <CenteredColumn size="one-quarter">
+              <StyledImage fixed={avatar.childImageSharp.fixed} />
+            </CenteredColumn>
+            <Columns.Column size="three-quarter">
+              <h3>Randy Perez</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </p>
+            </Columns.Column>
+          </Columns>
+        </Columns.Column>
+        <Columns.Column size={2} />
+        <CenteredColumn>
+          <StyledList>
+            <li>
               <a
                 href="https://github.com/randyjp"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <Icon size="large">
-                  <FontAwesomeIcon icon={faGithub} size="3x" />
+                  <FontAwesomeIcon icon={faGithub} size="2x" color="black" />
                 </Icon>
               </a>
+            </li>
+            <li>
               <a
                 href="https://www.linkedin.com/in/randyperez"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <Icon size="large">
-                  <FontAwesomeIcon icon={faLinkedin} size="3x" />
+                  <FontAwesomeIcon icon={faLinkedin} size="2x" color="black" />
                 </Icon>
               </a>
+            </li>
+            <li>
               <a
                 href="https://twitter.com/Randy_Perez"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <Icon size="large">
-                  <FontAwesomeIcon icon={faTwitter} size="3x" />
+                  <FontAwesomeIcon icon={faTwitter} size="2x" color="black" />
                 </Icon>
               </a>
+            </li>
+            <li>
               <a
                 href="https://stackoverflow.com/users/3271569/randyjp?tab=profile"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <Icon size="large">
-                  <FontAwesomeIcon icon={faStackOverflow} size="3x" />
+                  <FontAwesomeIcon
+                    icon={faStackOverflow}
+                    size="2x"
+                    color="black"
+                  />
                 </Icon>
               </a>
-            </ul>
-          </Columns.Column>
-        </Columns>
+            </li>
+          </StyledList>
+        </CenteredColumn>
       </>
     )}
   />

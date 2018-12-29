@@ -5,13 +5,13 @@ import Image from 'gatsby-image';
 import styled from 'styled-components';
 import Icon from 'react-bulma-components/lib/components/icon';
 import Columns from 'react-bulma-components/lib/components/columns';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faTwitter,
   faStackOverflow,
   faLinkedin,
   faGithub,
 } from '@fortawesome/free-brands-svg-icons';
+import FaIcon from './FaIcon';
 
 const StyledImage = styled(Image)`
   border-radius: 100%;
@@ -47,16 +47,6 @@ const avatarQuery = graphql`
   }
 `;
 
-const BioSocialLink = ({ icon, iconSize, url, color, containerSize }) => (
-  <li>
-    <a href={url} target="_blank" rel="noopener noreferrer">
-      <Icon size={containerSize}>
-        <FontAwesomeIcon icon={icon} size={iconSize} color={color} />
-      </Icon>
-    </a>
-  </li>
-);
-
 const Bio = () => (
   <StaticQuery
     query={avatarQuery}
@@ -81,51 +71,47 @@ const Bio = () => (
         <Columns.Column size={2} />
         <CenteredColumn>
           <StyledList>
-            <BioSocialLink
-              icon={faGithub}
-              iconSize="2x"
-              url="https://github.com/randyjp"
-              color="#302F2F"
-              containerSize="large"
-            />
-            <BioSocialLink
-              icon={faLinkedin}
-              iconSize="2x"
-              url="https://www.linkedin.com/in/randyperez"
-              color="#3670AE"
-              containerSize="large"
-            />
-            <BioSocialLink
-              icon={faTwitter}
-              iconSize="2x"
-              url="https://twitter.com/Randy_Perez"
-              color="#50A1F2"
-              containerSize="large"
-            />
-            <BioSocialLink
-              icon={faStackOverflow}
-              iconSize="2x"
-              url="https://stackoverflow.com/users/3271569/randyjp?tab=profile"
-              color="#EF8023"
-              containerSize="large"
-            />
+            <li>
+              <FaIcon
+                icon={faGithub}
+                iconSize="2x"
+                url="https://github.com/randyjp"
+                color="#302F2F"
+                containerSize="large"
+              />
+            </li>
+            <li>
+              <FaIcon
+                icon={faLinkedin}
+                iconSize="2x"
+                url="https://www.linkedin.com/in/randyperez"
+                color="#3670AE"
+                containerSize="large"
+              />
+            </li>
+            <li>
+              <FaIcon
+                icon={faTwitter}
+                iconSize="2x"
+                url="https://twitter.com/Randy_Perez"
+                color="#50A1F2"
+                containerSize="large"
+              />
+            </li>
+            <li>
+              <FaIcon
+                icon={faStackOverflow}
+                iconSize="2x"
+                url="https://stackoverflow.com/users/3271569/randyjp?tab=profile"
+                color="#EF8023"
+                containerSize="large"
+              />
+            </li>
           </StyledList>
         </CenteredColumn>
       </>
     )}
   />
 );
-
-BioSocialLink.propTypes = {
-  icon: PropTypes.shape({
-    icon: PropTypes.array.isRequired,
-    iconName: PropTypes.string.isRequired,
-    prefix: PropTypes.string.isRequired,
-  }).isRequired,
-  iconSize: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
-  containerSize: PropTypes.string.isRequired,
-};
 
 export default Bio;

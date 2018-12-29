@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { StaticQuery, graphql, Link } from 'gatsby';
+import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import Navbar from 'react-bulma-components/lib/components/navbar';
 import Box from 'react-bulma-components/lib/components/box';
 import Container from 'react-bulma-components/lib/components/container';
-import Icon from 'react-bulma-components/lib/components/icon';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBlog,
   faFilePdf,
   faAddressCard,
 } from '@fortawesome/free-solid-svg-icons';
+import FaIcon from './FaIcon';
 
 const logoQuery = graphql`
   query LogoQuery {
@@ -53,11 +51,11 @@ class Nav extends Component {
                 </Navbar.Brand>
                 <Navbar.Menu>
                   <Navbar.Container position="end">
-                    <NavItemLink
-                      name="About Me"
+                    <FaIcon
+                      displayName="About Me"
                       icon={faAddressCard}
                       color="green"
-                      to="/about"
+                      url="/about"
                     />
                     {/* <NavItemLink
                       name="Services"
@@ -65,17 +63,17 @@ class Nav extends Component {
                       color="grey"
                       to="#"
                     /> */}
-                    <NavItemLink
-                      name="Blog"
+                    <FaIcon
+                      displayName="Blog"
                       icon={faBlog}
                       color="orange"
-                      to="/blog-list"
+                      url="/blog-list"
                     />
-                    <NavItemLink
-                      name="Resume"
+                    <FaIcon
+                      displayName="Resume"
                       icon={faFilePdf}
                       color="red"
-                      to="#"
+                      url="/somewhere"
                     />
                   </Navbar.Container>
                 </Navbar.Menu>
@@ -87,26 +85,4 @@ class Nav extends Component {
     );
   }
 }
-
-const NavItemLink = ({ name, icon, color, to }) => (
-  <Link className="navbar-item" activeClassName="is-active" to={to}>
-    {/* adds classname navbar-item to use bulma styles on gatsby links */}
-    <Icon>
-      <FontAwesomeIcon icon={icon} color={color} />
-    </Icon>
-    <span>{name}</span>
-  </Link>
-);
-
-NavItemLink.propTypes = {
-  name: PropTypes.string.isRequired,
-  icon: PropTypes.shape({
-    icon: PropTypes.array.isRequired,
-    iconName: PropTypes.string.isRequired,
-    prefix: PropTypes.string.isRequired,
-  }).isRequired,
-  to: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
-};
-
 export default Nav;

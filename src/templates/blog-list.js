@@ -35,7 +35,6 @@ const BlogPagination = ({ previous, next }) => {
   const localPrevious = previous === 1 ? '' : previous;
   return (
     <Columns.Column
-      size="full"
       style={{
         marginTop: '60px',
       }}

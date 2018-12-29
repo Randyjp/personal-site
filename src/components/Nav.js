@@ -10,7 +10,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBlog,
   faFilePdf,
-  faKeyboard,
   faAddressCard,
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -55,17 +54,17 @@ class Nav extends Component {
                 <Navbar.Menu>
                   <Navbar.Container position="end">
                     <NavItemLink
-                      name="About"
+                      name="About Me"
                       icon={faAddressCard}
                       color="green"
                       to="/about"
                     />
-                    <NavItemLink
+                    {/* <NavItemLink
                       name="Services"
                       icon={faKeyboard}
                       color="grey"
                       to="#"
-                    />
+                    /> */}
                     <NavItemLink
                       name="Blog"
                       icon={faBlog}

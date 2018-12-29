@@ -67,7 +67,7 @@ const Bio = () => (
             <CenteredColumn size="one-quarter">
               <StyledImage fixed={avatar.childImageSharp.fixed} />
             </CenteredColumn>
-            <Columns.Column size="three-quarter">
+            <Columns.Column size="three-quarters">
               <h3>Randy Perez</h3>
               <StyledP>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

@@ -6,9 +6,9 @@ import PropTypes from 'prop-types';
 import Nav from './Nav';
 import Footer from './Footer';
 
-const BasicLayout = ({ render, includeNav, StyledContainer }) => (
+const BasicLayout = ({ render, withNav, withFooter, StyledContainer }) => (
   <Fragment>
-    {includeNav && <Nav />}
+    {withNav && <Nav />}
     <Section>
       {StyledContainer ? (
         <StyledContainer>
@@ -20,18 +20,20 @@ const BasicLayout = ({ render, includeNav, StyledContainer }) => (
         </Container>
       )}
     </Section>
-    <Footer />
+    {withFooter && <Footer />}
   </Fragment>
 );
 
 BasicLayout.propTypes = {
   render: PropTypes.func.isRequired,
-  includeNav: PropTypes.bool,
+  withNav: PropTypes.bool,
+  withFooter: PropTypes.bool,
   StyledContainer: PropTypes.shape({ render: PropTypes.func.isRequired }),
 };
 
 BasicLayout.defaultProps = {
-  includeNav: true,
+  withNav: false,
+  withFooter: false,
   StyledContainer: null,
 };
 

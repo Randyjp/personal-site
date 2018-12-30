@@ -25,6 +25,7 @@ const BlogPost = ({ data, pageContext }) => {
   return (
     <Fragment>
       <BasicLayout
+        withNav
         render={() => (
           <>
             <Columns.Column size="three-fifths" offset="one-fifth">
@@ -48,6 +49,7 @@ const BlogPost = ({ data, pageContext }) => {
                     </time>
                   </p>
                 </header>
+                {/* eslint-disable-next-line react/no-danger */}
                 <div dangerouslySetInnerHTML={{ __html: html }} />
               </article>
             </Columns.Column>

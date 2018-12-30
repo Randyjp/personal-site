@@ -1,9 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import Image from 'gatsby-image';
 import styled from 'styled-components';
-import Icon from 'react-bulma-components/lib/components/icon';
 import Columns from 'react-bulma-components/lib/components/columns';
 import {
   faTwitter,
@@ -12,6 +10,7 @@ import {
   faGithub,
 } from '@fortawesome/free-brands-svg-icons';
 import FaIcon from './FaIcon';
+import StyledList from '../styles/common';
 
 const StyledImage = styled(Image)`
   border-radius: 100%;
@@ -21,14 +20,6 @@ const CenteredColumn = styled(Columns.Column)`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
-
-const StyledList = styled.ul`
-  list-style: none;
-
-  li {
-    display: inline;
-  }
 `;
 
 const StyledP = styled.p`

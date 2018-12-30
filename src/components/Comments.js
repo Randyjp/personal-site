@@ -13,6 +13,7 @@ const Comments = ({ url, slug, title }) => {
   return (
     <BasicLayout
       includeNav={false}
+      withFooter
       render={() => (
         <Columns.Column>
           <DiscussionEmbed shortname="https-randyperez-tech" config={config} />

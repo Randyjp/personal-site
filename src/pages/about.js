@@ -25,6 +25,8 @@ const About = ({ data }) => {
   const { profilePicture } = data;
   return (
     <BasicLayout
+      withNav
+      withFooter
       StyledContainer={StyledContainer}
       render={() => (
         <>

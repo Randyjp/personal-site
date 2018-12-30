@@ -13,6 +13,8 @@ const BlogList = ({ pageContext }) => {
   const previous = index > 1 ? index - 1 : null;
   return (
     <BasicLayout
+      withNav
+      withFooter
       render={() => {
         const blogs = group.map(blog => (
           <Columns.Column size="one-third" key={blog.node.fields.slug}>

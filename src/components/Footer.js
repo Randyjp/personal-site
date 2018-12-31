@@ -70,7 +70,7 @@ const Footer = () => (
               <FaIcon
                 icon={faRss}
                 iconSize="lg"
-                url="https://github.com/randyjp"
+                url="/rss.xml"
                 color="orange"
                 containerSize="medium"
               />

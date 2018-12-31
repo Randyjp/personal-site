@@ -97,6 +97,19 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: `Randy Perez's Blog.`,
+        short_name: `Randy's blog.`,
+        start_url: '/',
+        background_color: '#FFFFFF',
+        theme_color: '#FFFFFF',
+        // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
+        display: 'standalone',
+        icon: 'content/assets/logo.png',
+      },
+    },
     'gatsby-plugin-styled-components',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',

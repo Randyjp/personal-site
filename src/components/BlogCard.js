@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import Card from 'react-bulma-components/lib/components/card';
-import Content from 'react-bulma-components/lib/components/content';
 import PropTypes from 'prop-types';
 import { format } from 'date-fns';
 import styled from 'styled-components';
@@ -16,10 +15,10 @@ const StyledCard = styled(Card)`
   .card-content {
     padding-bottom: 0;
     padding-top: 0;
-  }
-  .content {
     display: flex;
     flex-direction: column;
+  }
+  .card-content {
   }
   :hover {
     background: #0097fe none repeat scroll 0 0;
@@ -50,11 +49,9 @@ const BlogCard = ({ blog }) => {
       <StyledCard>
         <Card.Image size="4by3" src={attachments[0].publicURL} />
         <Card.Content>
-          <Content>
-            <StyledTime dateTime={date}>{formattedDate}</StyledTime>
-            <h1>{title}</h1>
-            <p>{shortDescription}</p>
-          </Content>
+          <StyledTime dateTime={date}>{formattedDate}</StyledTime>
+          <h1>{title}</h1>
+          <p>{shortDescription}</p>
         </Card.Content>
       </StyledCard>
     </Link>

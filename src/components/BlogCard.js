@@ -18,8 +18,6 @@ const StyledCard = styled(Card)`
     display: flex;
     flex-direction: column;
   }
-  .card-content {
-  }
   :hover {
     background: #0097fe none repeat scroll 0 0;
     box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.2);

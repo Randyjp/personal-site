@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StaticQuery, graphql } from 'gatsby';
+import { StaticQuery, graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import Navbar from 'react-bulma-components/lib/components/navbar';
 import Box from 'react-bulma-components/lib/components/box';
@@ -16,7 +16,7 @@ const logoQuery = graphql`
   query LogoQuery {
     logo: file(relativePath: { eq: "assets/logo.png" }) {
       childImageSharp {
-        fixed(height: 90) {
+        fixed(height: 90, width: 140) {
           ...GatsbyImageSharpFixed
         }
       }
@@ -43,9 +43,9 @@ class Nav extends Component {
             <Box>
               <Navbar color="white" active={open}>
                 <Navbar.Brand>
-                  <Navbar.Item renderAs="a" href="#">
+                  <Link to="/blog-list" className="navbar-item">
                     <Img fixed={logo.childImageSharp.fixed} />
-                  </Navbar.Item>
+                  </Link>
                   <Navbar.Burger
                     onClick={() => this.setState({ open: !open })}
                   />

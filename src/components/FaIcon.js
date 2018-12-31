@@ -5,11 +5,24 @@ import Icon from 'react-bulma-components/lib/components/icon';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { isExternalLink } from '../utils/utils';
 
-const FaIcon = ({ icon, iconSize, displayName, url, color, containerSize }) => {
+const FaIcon = ({
+  icon,
+  iconSize,
+  displayName,
+  url,
+  color,
+  containerSize,
+  cssClass,
+}) => {
   const name = displayName ? <span>{displayName}</span> : null;
   if (isExternalLink(url)) {
     return (
-      <a href={url} target="_blank" rel="noopener noreferrer">
+      <a
+        className={cssClass}
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <Icon size={containerSize}>
           <FontAwesomeIcon icon={icon} size={iconSize} color={color} />
         </Icon>
@@ -19,7 +32,7 @@ const FaIcon = ({ icon, iconSize, displayName, url, color, containerSize }) => {
   }
 
   return (
-    <Link className="navbar-item" activeClassName="is-active" to={url}>
+    <Link className={cssClass} activeClassName="is-active" to={url}>
       {/* adds classname navbar-item to use bulma styles on gatsby links */}
       <Icon size={containerSize}>
         <FontAwesomeIcon icon={icon} size={iconSize} color={color} />
@@ -40,12 +53,14 @@ FaIcon.propTypes = {
   color: PropTypes.string.isRequired,
   containerSize: PropTypes.string,
   displayName: PropTypes.string,
+  cssClass: PropTypes.string,
 };
 
 FaIcon.defaultProps = {
   displayName: null,
   containerSize: 'auto',
   iconSize: '1x',
+  cssClass: null,
 };
 
 export default FaIcon;

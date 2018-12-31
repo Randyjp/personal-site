@@ -10,6 +10,7 @@ import {
   faAddressCard,
 } from '@fortawesome/free-solid-svg-icons';
 import FaIcon from './FaIcon';
+import resume from '../../content/files/RandyPerezResume.pdf';
 
 const logoQuery = graphql`
   query LogoQuery {
@@ -56,6 +57,7 @@ class Nav extends Component {
                       icon={faAddressCard}
                       color="green"
                       url="/about"
+                      cssClass="navbar-item"
                     />
                     {/* <NavItemLink
                       name="Services"
@@ -68,12 +70,14 @@ class Nav extends Component {
                       icon={faBlog}
                       color="orange"
                       url="/blog-list"
+                      cssClass="navbar-item"
                     />
                     <FaIcon
                       displayName="Resume"
                       icon={faFilePdf}
                       color="red"
-                      url="/somewhere"
+                      url={resume}
+                      cssClass="navbar-item"
                     />
                   </Navbar.Container>
                 </Navbar.Menu>

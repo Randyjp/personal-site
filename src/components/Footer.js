@@ -125,7 +125,7 @@ const Footer = () => (
           }}
         >
           <p>
-            {`© Randy Perez 20018-${format(new Date(), 'YYYY')}.  Powered by: `}
+            {`© Randy Perez 2018-${format(new Date(), 'YYYY')}.  Powered by: `}
             <a
               href="https://www.gatsbyjs.org"
               target="_blank"

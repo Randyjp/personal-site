@@ -101,7 +101,7 @@ module.exports = {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: `Randy Perez's Blog.`,
-        short_name: `Randy's blog.`,
+        short_name: `Randy's blog`,
         start_url: '/',
         background_color: '#FFFFFF',
         theme_color: '#FFFFFF',
@@ -110,6 +110,8 @@ module.exports = {
         icon: 'content/assets/logo.png',
       },
     },
+    'gatsby-plugin-offline',
+    'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',

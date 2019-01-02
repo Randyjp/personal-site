@@ -2,6 +2,7 @@ require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
+    author: 'Randy Perez',
     title: 'Randy Perez professional site and personal blog.',
     subtitle: 'My thoughts on software development and assorted topics.',
     siteUrl: 'http://randyperez.tech',

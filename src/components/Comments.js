@@ -1,8 +1,6 @@
 import React from 'react';
 import Proptypes from 'prop-types';
 import { DiscussionEmbed } from 'disqus-react';
-import Columns from 'react-bulma-components/lib/components/columns';
-import BasicLayout from './BasicLayout';
 
 const Comments = ({ url, slug, title }) => {
   const config = {
@@ -10,17 +8,7 @@ const Comments = ({ url, slug, title }) => {
     title,
     identifier: slug,
   };
-  return (
-    <BasicLayout
-      includeNav={false}
-      withFooter
-      render={() => (
-        <Columns.Column>
-          <DiscussionEmbed shortname="https-randyperez-tech" config={config} />
-        </Columns.Column>
-      )}
-    />
-  );
+  return <DiscussionEmbed shortname="https-randyperez-tech" config={config} />;
 };
 
 Comments.propTypes = {

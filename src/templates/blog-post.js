@@ -1,9 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link, graphql } from 'gatsby';
 import { format } from 'date-fns';
 import PropTypes from 'prop-types';
 import Level from 'react-bulma-components/lib/components/level';
 import Columns from 'react-bulma-components/lib/components/columns';
+import Section from 'react-bulma-components/lib/components/section';
+import Container from 'react-bulma-components/lib/components/container';
 import Icon from 'react-bulma-components/lib/components/icon';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock } from '@fortawesome/free-solid-svg-icons';
@@ -13,60 +15,91 @@ import BasicLayout from '../components/BasicLayout';
 import Comments from '../components/Comments';
 import { rhythm } from '../utils/typography';
 import Bio from '../components/Bio';
+import SEO from '../components/Seo';
 
 const BlogPost = ({ data, pageContext }) => {
   const {
     html,
     timeToRead,
-    frontmatter: { title, date },
+    frontmatter: { title, date, shortDescription },
   } = data.markdownRemark;
   const { previous, next, slug } = pageContext;
   const formattedDate = format(new Date(date), 'MMM D, YYYY');
   return (
-    <Fragment>
-      <BasicLayout
-        withNav
-        render={() => (
-          <>
-            <Columns.Column size="three-fifths" offset="one-fifth">
-              <article>
-                <header>
-                  <h1>{title}</h1>
-                  <p
-                    style={{
-                      fontSize: rhythm(0.5),
-                      marginTop: rhythm(-4 / 5),
-                    }}
-                  >
-                    <time dateTime={date}>
-                      {formattedDate} ~{' '}
-                      <Icon color="info">
-                        <FontAwesomeIcon icon={faClock} />
-                      </Icon>
-                      <span>
-                        {timeToRead} minute{timeToRead > 1 ? 's' : ''} read
-                      </span>
-                    </time>
-                  </p>
-                </header>
-                {/* eslint-disable-next-line react/no-danger */}
-                <div dangerouslySetInnerHTML={{ __html: html }} />
-              </article>
-            </Columns.Column>
-            <Columns.Column size={12}>
-              <hr />
-            </Columns.Column>
-            <Bio />
-          </>
-        )}
-      />
-      <InnerBlogPagination previous={previous} next={next} />
-      <Comments
-        url={`http://localhost:8000/${slug}`}
-        title={title}
-        slug={slug}
-      />
-    </Fragment>
+    <BasicLayout
+      withNav
+      withFooter
+      render={() => (
+        <>
+          <SEO title={title} description={shortDescription} />
+          <article>
+            <Section>
+              <Container>
+                <Columns>
+                  <Columns.Column size="three-fifths" offset="one-fifth">
+                    <header>
+                      <h1>{title}</h1>
+                      <p
+                        style={{
+                          fontSize: rhythm(0.5),
+                          marginTop: rhythm(-4 / 5),
+                        }}
+                      >
+                        <time dateTime={date}>
+                          {formattedDate} ~{' '}
+                          <Icon color="info">
+                            <FontAwesomeIcon icon={faClock} />
+                          </Icon>
+                          <span>
+                            {timeToRead} minute{timeToRead > 1 ? 's' : ''} read
+                          </span>
+                        </time>
+                      </p>
+                    </header>
+                  </Columns.Column>
+                  <Columns.Column size="one-fifth" />
+                </Columns>
+              </Container>
+            </Section>
+            <Section>
+              <Container>
+                <Columns>
+                  <Columns.Column size="three-fifths" offset="one-fifth">
+                    {/* eslint-disable-next-line react/no-danger */}
+                    <div dangerouslySetInnerHTML={{ __html: html }} />
+                  </Columns.Column>
+                  <Columns.Column size="one-fifth" />
+                </Columns>
+              </Container>
+            </Section>
+          </article>
+          <Section>
+            <Container>
+              <Columns>
+                <Columns.Column size={12}>
+                  <hr />
+                </Columns.Column>
+                <Bio />
+              </Columns>
+            </Container>
+          </Section>
+          <InnerBlogPagination previous={previous} next={next} />
+          <Section>
+            <Container>
+              <Columns>
+                <Columns.Column>
+                  <Comments
+                    url={`http://localhost:8000/${slug}`}
+                    title={title}
+                    slug={slug}
+                  />
+                </Columns.Column>
+              </Columns>
+            </Container>
+          </Section>
+        </>
+      )}
+    />
   );
 };
 
@@ -137,6 +170,7 @@ export const query = graphql`
         title
         author
         date
+        shortDescription
       }
     }
   }

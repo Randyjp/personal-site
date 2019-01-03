@@ -1,11 +1,14 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link } from 'gatsby';
 import Columns from 'react-bulma-components/lib/components/columns';
+import Section from 'react-bulma-components/lib/components/section';
+import Container from 'react-bulma-components/lib/components/container';
 // eslint-disable-next-line
 import Pagination from "react-bulma-components/lib/components/pagination";
 import PropTypes from 'prop-types';
 import BlogCard from '../components/BlogCard';
 import BasicLayout from '../components/BasicLayout';
+import SEO from '../components/Seo';
 
 const BlogList = ({ pageContext }) => {
   const { group, index, pageCount } = pageContext;
@@ -23,10 +26,24 @@ const BlogList = ({ pageContext }) => {
         ));
 
         return (
-          <Fragment>
-            {blogs}
+          <>
+            <SEO
+              title="All blog posts."
+              keywords={[
+                'blog',
+                'javascript',
+                'programming',
+                'code',
+                'developer',
+              ]}
+            />
+            <Section>
+              <Container>
+                <Columns>{blogs}</Columns>
+              </Container>
+            </Section>
             <BlogPagination previous={previous} next={next} />
-          </Fragment>
+          </>
         );
       }}
     />

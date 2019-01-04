@@ -43,7 +43,7 @@ class Nav extends Component {
             <Box>
               <Navbar color="white" active={open}>
                 <Navbar.Brand>
-                  <Link to="/blog-list" className="navbar-item">
+                  <Link to="/" className="navbar-item">
                     <Img fixed={logo.childImageSharp.fixed} />
                   </Link>
                   <Navbar.Burger
@@ -53,7 +53,14 @@ class Nav extends Component {
                 <Navbar.Menu>
                   <Navbar.Container position="end">
                     <FaIcon
-                      displayName="About Me"
+                      displayName="Blog"
+                      icon={faBlog}
+                      color="orange"
+                      url="/"
+                      cssClass="navbar-item"
+                    />
+                    <FaIcon
+                      displayName="About"
                       icon={faAddressCard}
                       color="green"
                       url="/about"
@@ -65,13 +72,6 @@ class Nav extends Component {
                       color="grey"
                       to="#"
                     /> */}
-                    <FaIcon
-                      displayName="Blog"
-                      icon={faBlog}
-                      color="orange"
-                      url="/blog-list"
-                      cssClass="navbar-item"
-                    />
                     <FaIcon
                       displayName="Resume"
                       icon={faFilePdf}

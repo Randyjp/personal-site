@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, graphql } from 'gatsby';
 import { format } from 'date-fns';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import Level from 'react-bulma-components/lib/components/level';
 import Columns from 'react-bulma-components/lib/components/columns';
 import Section from 'react-bulma-components/lib/components/section';
@@ -16,6 +17,13 @@ import Comments from '../components/Comments';
 import { rhythm } from '../utils/typography';
 import Bio from '../components/Bio';
 import SEO from '../components/Seo';
+
+const StyledArticle = styled.article`
+  .section {
+    padding-bottom: 0.1rem;
+    padding-top: 1rem;
+  }
+`;
 
 const BlogPost = ({ data, pageContext }) => {
   const {
@@ -32,7 +40,7 @@ const BlogPost = ({ data, pageContext }) => {
       render={() => (
         <>
           <SEO title={title} description={shortDescription} />
-          <article>
+          <StyledArticle>
             <Section>
               <Container>
                 <Columns>
@@ -72,7 +80,7 @@ const BlogPost = ({ data, pageContext }) => {
                 </Columns>
               </Container>
             </Section>
-          </article>
+          </StyledArticle>
           <Section>
             <Container>
               <Columns>

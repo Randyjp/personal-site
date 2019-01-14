@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import Icon from 'react-bulma-components/lib/components/icon';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { isExternalLink } from '../utils/utils';
@@ -17,7 +18,7 @@ const FaIcon = ({
   const name = displayName ? <span>{displayName}</span> : null;
   if (isExternalLink(url)) {
     return (
-      <a
+      <OutboundLink
         className={cssClass}
         href={url}
         target="_blank"
@@ -27,7 +28,7 @@ const FaIcon = ({
           <FontAwesomeIcon icon={icon} size={iconSize} color={color} />
         </Icon>
         {name}
-      </a>
+      </OutboundLink>
     );
   }
 

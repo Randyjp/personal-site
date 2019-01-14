@@ -9,6 +9,7 @@ import Section from 'react-bulma-components/lib/components/section';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import BasicLayout from '../components/BasicLayout';
 import SEO from '../components/Seo';
+import { rhythm } from '../utils/typography';
 
 const StyledArticle = styled.article`
   h1 {
@@ -16,8 +17,8 @@ const StyledArticle = styled.article`
     text-align: center;
   }
   .section {
-    padding-bottom: 1rem;
-    padding-top: 1rem;
+    padding-bottom: ${rhythm(6 / 10)};
+    padding-top: ${rhythm(6 / 10)};
   }
 `;
 

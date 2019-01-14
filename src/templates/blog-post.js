@@ -20,8 +20,8 @@ import SEO from '../components/Seo';
 
 const StyledArticle = styled.article`
   .section {
-    padding-bottom: 0.1rem;
-    padding-top: 1rem;
+    padding-bottom: ${rhythm(6 / 100)};
+    padding-top: ${rhythm(6 / 10)};
   }
 `;
 

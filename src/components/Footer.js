@@ -13,6 +13,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import FaIcon from './FaIcon';
 import StyledList from '../styles/common';
+import { rhythm } from '../utils/typography';
 
 const StyledFooter = styled(BulmaFooter)`
   a {
@@ -25,7 +26,7 @@ const StyledFooter = styled(BulmaFooter)`
     margin-bottom: 0;
   }
   li {
-    padding: 1rem;
+    padding: ${rhythm(3 / 5)};
   }
 
   /* Bulma's mobilbe breakpoint */
@@ -34,7 +35,7 @@ const StyledFooter = styled(BulmaFooter)`
       text-align: center;
     }
     ul {
-      font-size: 2rem;
+      font-size: ${rhythm(6 / 4)};
       text-align: center;
     }
     li {

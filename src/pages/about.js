@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 import Columns from 'react-bulma-components/lib/components/columns';
 import Container from 'react-bulma-components/lib/components/container';
 import Section from 'react-bulma-components/lib/components/section';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import BasicLayout from '../components/BasicLayout';
 import SEO from '../components/Seo';
 
@@ -65,17 +66,48 @@ const About = ({ data }) => {
                   <Columns.Column size={12}>
                     <h2>About me</h2>
                     <p>
-                      Eget nunc lobortis mattis aliquam faucibus purus in massa.
-                      Tristique et egestas quis ipsum suspendisse. Ultricies leo
-                      integer malesuada nunc vel risus. At urna condimentum
-                      mattis pellentesque. Fermentum posuere urna nec tincidunt.
-                      Sit amet venenatis urna cursus eget nunc. Pulvinar
-                      pellentesque habitant morbi tristique senectus et. Mollis
-                      nunc sed id semper risus in hendrerit gravida rutrum.
-                      Auctor urna nunc id cursus metus aliquam eleifend. Sem
-                      integer vitae justo eget magna fermentum. Mi tempus
-                      imperdiet nulla malesuada pellentesque.
+                      My name is Randy Perez and I am a Software Developer from
+                      Santo Domingo, Dominican Republic. I have been programming
+                      for 8+ years and professionally for the last 5+ years.
+                      Currently, I work for{' '}
+                      <OutboundLink
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="http://intellisysdcorp.com"
+                      >
+                        Intellisys
+                      </OutboundLink>{' '}
+                      a local outsourcing company that contracts my service to{' '}
+                      <OutboundLink
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://www.soul-cycle.com"
+                      >
+                        SoulCycle
+                      </OutboundLink>
+                      , a fitness company based in NYC.
                     </p>
+                    <p>
+                      I consider myself to be a web technology and data science
+                      aficionado. With this in mind, I&#39;m looking forward to
+                      talking, hacking, learning, breaking, exploring...
+                      everything(well, a good chunk!) about JavaScript, Python,
+                      Statistical Learning and Modern Web Applications.
+                    </p>
+                    <p>
+                      On a more personal note, I&#39;m a die-hard soccer,
+                      baseball, and tennis fan that loves to read about sports
+                      analytics and I&#39;m planning to write about this topic
+                      in the near future. Recently I rediscovered my long lost
+                      love for reading, thus every night you&#39;ll find me
+                      diving into novels, history and some technical books. I
+                      believe that exercise is a key factor in a person&#39;s
+                      mental and physical health that&#39;s why I usually go
+                      down the rabbit hole of fitness videos and articles but I
+                      also try to jump start my mornings with a visit to my
+                      local gym!
+                    </p>
+                    <p>Obviously, coffee is life!!</p>
                   </Columns.Column>
                 </Columns>
               </Container>
@@ -86,16 +118,21 @@ const About = ({ data }) => {
                   <Columns.Column size={12}>
                     <h2>Purpose of the Blog</h2>
                     <p>
-                      Eget nunc lobortis mattis aliquam faucibus purus in massa.
-                      Tristique et egestas quis ipsum suspendisse. Ultricies leo
-                      integer malesuada nunc vel risus. At urna condimentum
-                      mattis pellentesque. Fermentum posuere urna nec tincidunt.
-                      Sit amet venenatis urna cursus eget nunc. Pulvinar
-                      pellentesque habitant morbi tristique senectus et. Mollis
-                      nunc sed id semper risus in hendrerit gravida rutrum.
-                      Auctor urna nunc id cursus metus aliquam eleifend. Sem
-                      integer vitae justo eget magna fermentum. Mi tempus
-                      imperdiet nulla malesuada pellentesque.
+                      The main reason that brings my blog into existence is
+                      having an archive for my thoughts and ideas on software
+                      and other, mostly related, interests.
+                    </p>
+                    <p>
+                      Also, an important aspect for me is teaching and learning.
+                      If someone can read a piece of content I wrote and find
+                      value in it, that&#39;s an awesome day. If I can better my
+                      understanding of a topic by writing about it or reading a
+                      comment, that&#39;s an awesome day.
+                    </p>
+                    <p>
+                      Last but not least, I want to become a better writer since
+                      there&#39;s plenty of professional and personal benefits
+                      that come with this, sometimes overlooked, skill.
                     </p>
                   </Columns.Column>
                 </Columns>
@@ -107,16 +144,10 @@ const About = ({ data }) => {
                   <Columns.Column size={12}>
                     <h2>Contact me</h2>
                     <p>
-                      Eget nunc lobortis mattis aliquam faucibus purus in massa.
-                      Tristique et egestas quis ipsum suspendisse. Ultricies leo
-                      integer malesuada nunc vel risus. At urna condimentum
-                      mattis pellentesque. Fermentum posuere urna nec tincidunt.
-                      Sit amet venenatis urna cursus eget nunc. Pulvinar
-                      pellentesque habitant morbi tristique senectus et. Mollis
-                      nunc sed id semper risus in hendrerit gravida rutrum.
-                      Auctor urna nunc id cursus metus aliquam eleifend. Sem
-                      integer vitae justo eget magna fermentum. Mi tempus
-                      imperdiet nulla malesuada pellentesque.
+                      If you would like to share any proposal that matches my
+                      interests, have a project idea, suggestion, or just feel
+                      like talking about sports and/or code don&#39;t hesitate
+                      to <Link to="contact">Contac Me</Link>.
                     </p>
                   </Columns.Column>
                 </Columns>

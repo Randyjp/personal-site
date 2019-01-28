@@ -1,5 +1,6 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import Image from 'gatsby-image';
 import styled from 'styled-components';
 import Columns from 'react-bulma-components/lib/components/columns';
@@ -28,9 +29,9 @@ const StyledP = styled.p`
 
 const avatarQuery = graphql`
   query AvatarQuery {
-    avatar: file(relativePath: { eq: "assets/avatar.png" }) {
+    avatar: file(relativePath: { eq: "assets/about.jpg" }) {
       childImageSharp {
-        fixed(width: 125) {
+        fixed(width: 150, quality: 100) {
           ...GatsbyImageSharpFixed
         }
       }
@@ -51,10 +52,25 @@ const Bio = () => (
             <Columns.Column size="three-quarters">
               <h3>Randy Perez</h3>
               <StyledP>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+                I am a Software Developer from Santo Domingo, Dominican
+                Republic. I have been programming for 8+ years and
+                professionally for the last 5+ years. Currently, I work for{' '}
+                <OutboundLink
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="http://intellisysdcorp.com"
+                >
+                  Intellisys
+                </OutboundLink>{' '}
+                a local outsourcing company that contracts my service to{' '}
+                <OutboundLink
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://www.soul-cycle.com"
+                >
+                  SoulCycle
+                </OutboundLink>
+                , a fitness company based in NYC.
               </StyledP>
             </Columns.Column>
           </Columns>

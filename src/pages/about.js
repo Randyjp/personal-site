@@ -27,6 +27,23 @@ const StyleImage = styled(Img)`
   border-radius: 5px;
 `;
 
+const NonStretchedImage = props => {
+  const { fluid } = props;
+  let normalizedProps = props;
+  if (fluid && fluid.presentationWidth) {
+    normalizedProps = {
+      ...props,
+      style: {
+        ...(props.style || {}),
+        maxWidth: props.fluid.presentationWidth,
+        margin: '0 auto', // Used to center the image
+      },
+    };
+  }
+
+  return <StyleImage {...normalizedProps} />;
+};
+
 const About = ({ data }) => {
   const { profilePicture } = data;
   return (
@@ -53,10 +70,7 @@ const About = ({ data }) => {
                     <h1>About Me and the Blog</h1>
                   </Columns.Column>
                   <Columns.Column size={12}>
-                    <StyleImage
-                      alt={`Randy's headshot`}
-                      fluid={profilePicture.childImageSharp.fluid}
-                    />
+                    {NonStretchedImage(profilePicture.childImageSharp)}
                   </Columns.Column>
                 </Columns>
               </Container>
@@ -171,8 +185,9 @@ export const aboutQuery = graphql`
   query AboutQuery {
     profilePicture: file(relativePath: { eq: "assets/about.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1200, maxHeight: 400) {
+        fluid(maxWidth: 800, maxHeight: 600, quality: 100) {
           ...GatsbyImageSharpFluid
+          presentationWidth
         }
       }
     }

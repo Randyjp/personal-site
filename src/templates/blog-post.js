@@ -97,7 +97,7 @@ const BlogPost = ({ data, pageContext }) => {
               <Columns>
                 <Columns.Column>
                   <Comments
-                    url={`http://localhost:8000/${slug}`}
+                    url={`https://randyperez.tech${slug}`}
                     title={title}
                     slug={slug}
                   />

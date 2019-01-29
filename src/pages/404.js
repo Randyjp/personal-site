@@ -3,14 +3,13 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
-
 import Hero from 'react-bulma-components/lib/components/hero';
 import Container from 'react-bulma-components/lib/components/container';
 import Section from 'react-bulma-components/lib/components/section';
 import BasicLayout from '../components/BasicLayout';
 import Seo from '../components/Seo';
 
-const StyledSectin = styled(Section)`
+const StyledSection = styled(Section)`
   h1 {
     color: #4c9cdf;
     text-align: center;
@@ -32,7 +31,7 @@ const Page404 = ({ data }) => {
       render={() => (
         <>
           <Seo title="404 Not Found" />
-          <StyledSectin>
+          <StyledSection>
             <Hero>
               <Hero.Body>
                 <Container>
@@ -45,7 +44,7 @@ const Page404 = ({ data }) => {
                 </Container>
               </Hero.Body>
             </Hero>
-          </StyledSectin>
+          </StyledSection>
         </>
       )}
     />

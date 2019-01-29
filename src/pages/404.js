@@ -8,7 +8,7 @@ import Hero from 'react-bulma-components/lib/components/hero';
 import Container from 'react-bulma-components/lib/components/container';
 import Section from 'react-bulma-components/lib/components/section';
 import BasicLayout from '../components/BasicLayout';
-import SEO from '../components/Seo';
+import Seo from '../components/Seo';
 
 const StyledSectin = styled(Section)`
   h1 {
@@ -31,7 +31,7 @@ const Page404 = ({ data }) => {
       withFooter
       render={() => (
         <>
-          <SEO title="404 Not Found" />
+          <Seo title="404 Not Found" />
           <StyledSectin>
             <Hero>
               <Hero.Body>

@@ -8,7 +8,7 @@ import Pagination from "react-bulma-components/lib/components/pagination";
 import PropTypes from 'prop-types';
 import BlogCard from '../components/BlogCard';
 import BasicLayout from '../components/BasicLayout';
-import SEO from '../components/Seo';
+import Seo from '../components/Seo';
 
 const BlogList = ({ pageContext }) => {
   const { group, index, pageCount } = pageContext;
@@ -27,7 +27,7 @@ const BlogList = ({ pageContext }) => {
 
         return (
           <>
-            <SEO
+            <Seo
               title="All blog posts."
               keywords={[
                 'blog',

@@ -203,4 +203,4 @@ In conclusion, if we want to understand how good a team was, in offensive terms,
 
 Hopefully, this was a useful introduction to linear models in Python. Ordinary least squares(OLS) is a simple yet powerful model with several Python packages that implement it.
 
-Here's a link to the code.
+Here's a link to the [code](https://github.com/Randyjp/python-linear-reg).

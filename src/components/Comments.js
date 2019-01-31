@@ -3,6 +3,7 @@ import Proptypes from 'prop-types';
 import { DiscussionEmbed } from 'disqus-react';
 
 const Comments = ({ url, slug, title }) => {
+  console.log(url);
   const config = {
     url,
     title,

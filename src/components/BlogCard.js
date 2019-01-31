@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import Card from 'react-bulma-components/lib/components/card';
 import PropTypes from 'prop-types';
-import { format } from 'date-fns';
+import { format, parse} from 'date-fns';
 import styled from 'styled-components';
 import { rhythm } from '../utils/typography';
 
@@ -40,7 +40,7 @@ const BlogCard = ({ blog }) => {
     fields: { slug },
     frontmatter: { title, date, attachments, shortDescription },
   } = blog;
-  const formattedDate = format(new Date(date), 'MMM D, YYYY');
+  const formattedDate = format(parse(date), 'MMM D, YYYY');
 
   return (
     <Link to={slug}>

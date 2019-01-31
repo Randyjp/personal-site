@@ -1,7 +1,7 @@
 ---
 title: Linear Regression Using Python
 author: [RandyPerez]
-date: "01-29-2019"
+date: "20019-01-29"
 attachments:
   - "./ols_example2.png"
 shortDescription: "Introduction to linear models in Python using baseball data."

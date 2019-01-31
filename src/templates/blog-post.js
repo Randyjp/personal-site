@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
-import { format } from 'date-fns';
+import { format, parse} from 'date-fns';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Level from 'react-bulma-components/lib/components/level';
@@ -32,7 +32,7 @@ const BlogPost = ({ data, pageContext }) => {
     frontmatter: { title, date, shortDescription },
   } = data.markdownRemark;
   const { previous, next, slug } = pageContext;
-  const formattedDate = format(new Date(date), 'MMM D, YYYY');
+  const formattedDate = format(parse(date), 'MMM D, YYYY');
   return (
     <BasicLayout
       withNav

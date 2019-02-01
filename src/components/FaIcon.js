@@ -38,7 +38,7 @@ const FaIcon = ({
       <Icon size={containerSize}>
         <FontAwesomeIcon icon={icon} size={iconSize} color={color} />
       </Icon>
-      {name}
+     {name} holaa
     </Link>
   );
 };

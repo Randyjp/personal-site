@@ -13,6 +13,6 @@ export function encode(data) {
 }
 
 export function isExternalLink(url) {
-  const regex = /^https?/i;
+  const regex = /^(https|^\/static\/)/i;
   return regex.test(url);
 }

@@ -5,6 +5,7 @@ date: "2019-01-29"
 attachments:
   - "./ols_example2.png"
 shortDescription: "Introduction to linear models in Python using baseball data."
+tags: ["python", "data science", "statistics", "sports", "baseball"]
 ---
 
 In this post, we'll be going over the steps for building **Linear Regression** models using **Python 3**. They are popular models in machine learning and usually, one of the firsts we'll encounter in statistics textbooks and classes. It's a powerful tool that produces quick and interpretable predictions.

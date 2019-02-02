@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
-import { format, parse} from 'date-fns';
+import { format, parse } from 'date-fns';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Level from 'react-bulma-components/lib/components/level';

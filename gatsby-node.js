@@ -1,6 +1,7 @@
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 const createPaginatedPages = require('gatsby-paginate');
+const _ = require('lodash');
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
@@ -43,6 +44,7 @@ exports.createPages = ({ graphql, actions }) => {
                 author
                 date
                 shortDescription
+                tags
                 attachments {
                   publicURL
                 }
@@ -82,6 +84,26 @@ exports.createPages = ({ graphql, actions }) => {
         pageTemplate: './src/templates/blog-list.js',
         pageLength: 6,
         pathPrefix: '',
+      });
+      // CREATE tags pages
+      const tags = [];
+      blogPosts.forEach(({ node }) => {
+        // Iterate through each post, putting all found tags into `tags`
+        tags.push(...node.frontmatter.tags);
+      });
+
+      const uniqueTags = tags.filter(
+        (tag, index, arr) => arr.indexOf(tag) === index
+      );
+
+      uniqueTags.forEach(tag => {
+        createPage({
+          path: `tags/${_.kebabCase(tag)}`,
+          component: path.resolve('./src/pages/tags.js'),
+          context: {
+            tag,
+          },
+        });
       });
       resolve();
     });

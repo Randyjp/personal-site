@@ -1,7 +1,7 @@
 ---
 title: Linear Regression Using Python
 author: [RandyPerez]
-date: "20019-01-29"
+date: "2019-01-29"
 attachments:
   - "./ols_example2.png"
 shortDescription: "Introduction to linear models in Python using baseball data."
@@ -73,7 +73,7 @@ from patsy import dmatrices
 offense_formula = 'R ~ wOBA + H + OPS  + AVG + BB  + SO + OBP + SLG + ' \
                   'ISO + BABIP + wRC + wRCplus + Season'
 # Let pasty know which is out dataset and that we want a pandas DataFrame back.
-y, X = dmatrices(formula, data=batting, return_type='dataframe')
+y, X = dmatrices(offense_formula, data=batting, return_type='dataframe')
 ```
 
 As we can see, expressing a formula with pasty is done using strings plus the [dmatrices](https://patsy.readthedocs.io/en/latest/overview.html) function. The first part is the dependent variable(y), and everything after the "~" are independent variables(X). We are using columns' names to compose the formula.

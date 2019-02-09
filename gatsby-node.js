@@ -71,7 +71,7 @@ exports.createPages = ({ graphql, actions }) => {
           path: node.fields.slug,
           component: path.resolve('./src/templates/blog-post.js'),
           context: {
-            // data passed here will be availble for the template for page queries
+            // data passed here will be available for the template for page queries
             slug: node.fields.slug,
             previous,
             next,
@@ -99,7 +99,7 @@ exports.createPages = ({ graphql, actions }) => {
       uniqueTags.forEach(tag => {
         createPage({
           path: `tags/${_.kebabCase(tag)}`,
-          component: path.resolve('./src/pages/tags.js'),
+          component: path.resolve('./src/templates/tags.js'),
           context: {
             tag,
           },

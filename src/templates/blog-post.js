@@ -29,7 +29,7 @@ const BlogPost = ({ data, pageContext }) => {
   const {
     html,
     timeToRead,
-    frontmatter: { title, date, shortDescription },
+    frontmatter: { title, date, shortDescription, tags },
   } = data.markdownRemark;
   const { previous, next, slug } = pageContext;
   const formattedDate = format(parse(date), 'MMM D, YYYY');
@@ -39,7 +39,7 @@ const BlogPost = ({ data, pageContext }) => {
       withFooter
       render={() => (
         <>
-          <SEO title={title} description={shortDescription} />
+          <SEO title={title} description={shortDescription} keywords={tags} />
           <StyledArticle>
             <Section>
               <Container>
@@ -160,6 +160,9 @@ BlogPost.propTypes = {
       html: PropTypes.string.isRequired,
       frontmatter: PropTypes.shape({
         title: PropTypes.string.isRequired,
+        date: PropTypes.string.isRequired,
+        shortDescription: PropTypes.string.isRequired,
+        tags: PropTypes.arrayOf(PropTypes.string),
       }).isRequired,
     }).isRequired,
   }).isRequired,
@@ -179,6 +182,7 @@ export const query = graphql`
         author
         date
         shortDescription
+        tags
       }
     }
   }

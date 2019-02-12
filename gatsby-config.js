@@ -129,6 +129,7 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sass',
-    'gatsby-plugin-netlify'
+    'gatsby-plugin-lodash',
+    'gatsby-plugin-netlify',
   ],
 };

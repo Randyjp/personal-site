@@ -5,6 +5,7 @@ date: "2019-02-08"
 attachments:
   - "./select.jpg"
 shortDescription: "How and when to use them based on performance and syntax."
+tags: ["javascript", "selectors", "vanilla", "web development"]
 ---
 
 Nowadays whenever I need to grab an HTML element from the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model), I reach for [querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector) or [querySelectorAll](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll). They feel intuitive because we can use CSS syntax to select any node. However, there are other methods that serve a similar purpose, but I never use them; like [getElementById](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById) and the [getElementsBy\*](https://developer.mozilla.org/en-US/docs/Web/API/Document#Methods) family.

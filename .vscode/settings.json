@@ -1,12 +1,3 @@
 {
-  "editor.formatOnSave": true,
-  "[javascript]": {
-    "editor.formatOnSave": false
-  },
-  "eslint.autoFixOnSave": true,
-  "eslint.alwaysShowStatus": true,
-  "eslint.nodePath": "/Users/randy/.nvm/versions/node/v11.1.0/lib/node_modules",
-  "cSpell.words": [
-    "frontmatter"
-  ]
+  "cSpell.words": ["frontmatter"]
 }

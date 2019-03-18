@@ -1,11 +1,11 @@
 ---
 title: Beginner's guide to ESLint and Prettier
 author: [RandyPerez]
-date: "2019-02-25"
+date: '2019-02-25'
 attachments:
-  - "./screenCode.jpg"
-shortDescription: "Understand and bring linting and formatting into your projects."
-tags: ["eslint", "prettier", "javascript", "web development"]
+  - './screenCode.jpg'
+shortDescription: 'Understand and bring linting and formatting into your projects.'
+tags: ['eslint', 'prettier', 'javascript', 'web development']
 ---
 
 When I started playing with modern JavaScript, I quickly stumble into colleagues and video tutorials with text editors that highlighted syntax errors and magically formatted their code every time they saved. I was jealous; I wanted that immediately! After a few questions and a quick google search, it was clear I had to install [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/).
@@ -71,7 +71,7 @@ To "**lint**" your files you have to use the "**eslint**" command passing the fi
 ```javascript
 // very complex code we want to check(anyFileName.js)
 var x = 1;
-if (!!x) console.log("hi");
+if (!!x) console.log('hi');
 ```
 
 ```bash
@@ -97,7 +97,7 @@ $  eslint anyFileName.js --fix # for global installations
 ```javascript
 // Fixed code.
 var x = 1;
-if (x) console.log("hi");
+if (x) console.log('hi');
 ```
 
 That's a convenient feature but, it won't fix most errors. To provide more comprehensive corrections, ESLint would have to make broad assumptions about our code while risking to introduce new errors. Or in other words, keep your expectations regarding this feature.
@@ -137,16 +137,16 @@ $ npm install -g prettier # globally
 
 ## Configuration
 
-Remember the opinionated part? That means Prettier makes several stylistic decisions that we can't configure. What they are trying to accomplish is shortening discussions about styles that lead nowhere in terms of productivity or shipped features. Nevertheless, there are a few options that we can change using the command line or the `.prettierrc` configuration file. Let's override a few of the defaults:
+Remember the opinionated part? That means Prettier makes several stylistic decisions that we can't configure. What they are trying to accomplish is shortening discussions about styles that lead nowhere in terms of productivity or shipped features. Nevertheless, there are a few options that we can change using the command line or the **.prettierrc** configuration file. Let's override a few of the defaults:
 
-```json
-// note: This is a JSON file so comments should be removed. (.prettierrc)
-{
-  "trailingComma": "es5", // add a trailing command if still valid es5 code
-  "tabWidth": 3, // tab will be = 3 spaces. </3
-  "semi": false, // no semi colons
-  "singleQuote": true // always use single quotes
-}
+```javascript
+// prettierrc.js (we can also use a JavaScript file.)
+module.exports = {
+  trailingComma: 'es5', // add a trailing command if still valid es5 code
+  tabWidth: 3, // tab will be = 3 spaces. </3
+  semi: false, // no semi colons
+  singleQuote: true, // always use single quotes
+};
 ```
 
 ### Time To Look Pretty

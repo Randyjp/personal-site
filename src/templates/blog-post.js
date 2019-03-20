@@ -10,8 +10,19 @@ import Container from 'react-bulma-components/lib/components/container';
 import Icon from 'react-bulma-components/lib/components/icon';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock } from '@fortawesome/free-solid-svg-icons';
+
+import {
+  TwitterShareButton,
+  TwitterIcon,
+  FacebookShareButton,
+  FacebookIcon,
+  LinkedinShareButton,
+  LinkedinIcon,
+  RedditShareButton,
+  RedditIcon,
+} from 'react-share';
 // eslint-disable-next-line
-import Pagination from "react-bulma-components/lib/components/pagination";
+import Pagination from 'react-bulma-components/lib/components/pagination';
 import BasicLayout from '../components/BasicLayout';
 import Comments from '../components/Comments';
 import { rhythm } from '../utils/typography';
@@ -66,6 +77,36 @@ const BlogPost = ({ data, pageContext }) => {
                     </header>
                   </Columns.Column>
                   <Columns.Column size="one-fifth" />
+                </Columns>
+              </Container>
+            </Section>
+            <Section>
+              <Container>
+                <Columns>
+                  <Columns.Column size="three-fifths" offset="one-fifth">
+                    <FacebookShareButton url={`https://randyperez.tech${slug}`}>
+                      <FacebookIcon size={32} round />
+                    </FacebookShareButton>
+                    <TwitterShareButton
+                      url={`https://randyperez.tech${slug}`}
+                      title={title}
+                      via="randy_perez"
+                    >
+                      <TwitterIcon size={32} round />
+                    </TwitterShareButton>
+                    <LinkedinShareButton
+                      url={`https://randyperez.tech${slug}`}
+                      title={title}
+                    >
+                      <LinkedinIcon size={32} round />
+                    </LinkedinShareButton>
+                    <RedditShareButton
+                      url={`https://randyperez.tech${slug}`}
+                      title={title}
+                    >
+                      <RedditIcon size={32} round />
+                    </RedditShareButton>
+                  </Columns.Column>
                 </Columns>
               </Container>
             </Section>

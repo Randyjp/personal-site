@@ -28,7 +28,7 @@ Generally speaking, hooks are nothing but scripts that run when a specific actio
 
 There are tools that facilitate adding hooks to any project. In the JavaScript ecosystem, **Husky** is one of the leading players and, in my opinion, the easiest way to jump into the world of hooks.
 
-For more on git hooks, check the (docs)[https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks].
+For more on git hooks, check the [docs](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks).
 
 ## Husky
 

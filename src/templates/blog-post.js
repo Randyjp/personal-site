@@ -10,18 +10,57 @@ import Container from 'react-bulma-components/lib/components/container';
 import Icon from 'react-bulma-components/lib/components/icon';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock } from '@fortawesome/free-solid-svg-icons';
+
 // eslint-disable-next-line
-import Pagination from "react-bulma-components/lib/components/pagination";
+import Pagination from 'react-bulma-components/lib/components/pagination';
 import BasicLayout from '../components/BasicLayout';
 import Comments from '../components/Comments';
 import { rhythm } from '../utils/typography';
 import Bio from '../components/Bio';
 import SEO from '../components/Seo';
+import ShareButton from '../components/ShareButton';
 
 const StyledArticle = styled.article`
   .section {
     padding-bottom: ${rhythm(6 / 100)};
     padding-top: ${rhythm(6 / 10)};
+  }
+`;
+
+const StyledSubHeaderContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: ${rhythm(-4 / 5)};
+  justify-content: flex-start;
+
+  time {
+    padding-top: 1rem;
+  }
+
+  p {
+    font-size: ${rhythm(0.5)};
+  }
+
+  @media (max-width: 769px) {
+    box-sizing: border-box;
+    justify-content: center;
+
+    p {
+      margin-bottom: 0.5rem;
+    }
+  }
+`;
+
+const StyledShareContainer = styled.div`
+  display: flex;
+  & > div {
+    cursor: pointer;
+    padding: 1rem;
+    padding-top: 0;
+  }
+
+  @media (max-width: 769px) {
+    box-sizing: border-box;
   }
 `;
 
@@ -47,22 +86,42 @@ const BlogPost = ({ data, pageContext }) => {
                   <Columns.Column size="three-fifths" offset="one-fifth">
                     <header>
                       <h1>{title}</h1>
-                      <p
-                        style={{
-                          fontSize: rhythm(0.5),
-                          marginTop: rhythm(-4 / 5),
-                        }}
-                      >
-                        <time dateTime={date}>
-                          {formattedDate} ~{' '}
-                          <Icon color="info">
-                            <FontAwesomeIcon icon={faClock} />
-                          </Icon>
-                          <span>
-                            {timeToRead} minute{timeToRead > 1 ? 's' : ''} read
-                          </span>
-                        </time>
-                      </p>
+                      <StyledSubHeaderContainer>
+                        <p>
+                          <time dateTime={date}>
+                            {formattedDate} ~{' '}
+                            <Icon color="info">
+                              <FontAwesomeIcon icon={faClock} />
+                            </Icon>
+                            <span>
+                              {timeToRead} minute{timeToRead > 1 ? 's' : ''}{' '}
+                              read
+                            </span>
+                          </time>
+                        </p>
+                        <StyledShareContainer>
+                          <ShareButton
+                            title={title}
+                            slug={slug}
+                            platform="facebook"
+                          />
+                          <ShareButton
+                            title={title}
+                            slug={slug}
+                            platform="twitter"
+                          />
+                          <ShareButton
+                            title={title}
+                            slug={slug}
+                            platform="reddit"
+                          />
+                          <ShareButton
+                            title={title}
+                            slug={slug}
+                            platform="linkedin"
+                          />
+                        </StyledShareContainer>
+                      </StyledSubHeaderContainer>
                     </header>
                   </Columns.Column>
                   <Columns.Column size="one-fifth" />

@@ -54,6 +54,7 @@ const StyledSubHeaderContainer = styled.div`
 const StyledShareContainer = styled.div`
   display: flex;
   & > div {
+    cursor: pointer;
     padding: 1rem;
     padding-top: 0;
   }

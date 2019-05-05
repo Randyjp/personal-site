@@ -2,16 +2,12 @@ import React from 'react';
 import { Link } from 'gatsby';
 import Card from 'react-bulma-components/lib/components/card';
 import PropTypes from 'prop-types';
-import { format, parse} from 'date-fns';
+import { format, parse } from 'date-fns';
 import styled from 'styled-components';
 import { rhythm } from '../utils/typography';
+import { StyledH2 } from '../styles/common';
 
 const StyledCard = styled(Card)`
-  h1 {
-    color: #4c9cdf;
-    font-size: ${rhythm(4 / 5)};
-    margin-top: ${rhythm(2 / 5)};
-  }
   .card-content {
     padding-bottom: 0;
     padding-top: 0;
@@ -19,11 +15,12 @@ const StyledCard = styled(Card)`
     flex-direction: column;
   }
   :hover {
-    background: #0097fe none repeat scroll 0 0;
-    box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.2);
-    color: #fff;
-    h1 {
-      color: #fff;
+    background: ${({ theme: { Colors } }) => Colors.blue.light2} none repeat
+      scroll 0 0;
+    box-shadow: ${({ theme: { Shadows } }) => Shadows.box.cardBasic};
+    color: ${({ theme: { Colors } }) => Colors.grayScale.white};
+    h2 {
+      color: ${({ theme: { Colors } }) => Colors.grayScale.white};
     }
   }
   height: 100%;
@@ -33,6 +30,7 @@ const StyledCard = styled(Card)`
 const StyledTime = styled.time`
   align-self: flex-end;
   font-size: ${rhythm(1 / 2)};
+  margin-bottom: 0.5rem;
 `;
 
 const BlogCard = ({ blog }) => {
@@ -48,7 +46,7 @@ const BlogCard = ({ blog }) => {
         <Card.Image size="4by3" src={attachments[0].publicURL} />
         <Card.Content>
           <StyledTime dateTime={date}>{formattedDate}</StyledTime>
-          <h1>{title}</h1>
+          <StyledH2>{title}</StyledH2>
           <p>{shortDescription}</p>
         </Card.Content>
       </StyledCard>

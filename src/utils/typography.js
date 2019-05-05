@@ -1,15 +1,25 @@
 import Typography from 'typography';
-import parnassusTheme from 'typography-theme-parnassus';
 
-parnassusTheme.overrideStyles = () => ({
-  a: {
-    color: '#375c85',
-    textDecoration: 'none',
-    boxShadow: 'none',
-  },
+const typography = new Typography({
+  baseFontSize: '16px',
+  baseLineHeight: 1.8,
+  bodyFontFamily: ['Merriweather', 'sans-serif'],
+  bodyWeight: 400,
+  boldWeight: 700,
+  headerFontFamily: ['Merriweather Sans', 'sans-serif'],
+  headerWeight: 800,
+  googleFonts: [
+    {
+      name: 'Merriweather Sans',
+      styles: ['800'],
+    },
+    {
+      name: 'Merriweather',
+      styles: ['400', '400i', '700'],
+    },
+  ],
+  scaleRatio: 2.2,
 });
-
-const typography = new Typography(parnassusTheme);
 
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== 'production') {

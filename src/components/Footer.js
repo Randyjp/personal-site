@@ -12,7 +12,7 @@ import {
   faGithub,
 } from '@fortawesome/free-brands-svg-icons';
 import FaIcon from './FaIcon';
-import StyledList from '../styles/common';
+import { StyledList } from '../styles/common';
 import { rhythm } from '../utils/typography';
 
 const StyledFooter = styled(BulmaFooter)`

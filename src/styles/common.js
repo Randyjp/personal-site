@@ -1,4 +1,10 @@
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+  a {
+    text-decoration: none;
+  }
+`;
 
 const StyledList = styled.ul`
   list-style: none;
@@ -8,4 +14,9 @@ const StyledList = styled.ul`
   }
 `;
 
-export default StyledList;
+const StyledH2 = styled.h2`
+  color: ${({ theme: { Colors } }) => Colors.blue.light};
+  font-size: 1.5rem;
+`;
+
+export { StyledList, StyledH2, GlobalStyle };

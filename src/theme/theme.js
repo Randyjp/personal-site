@@ -5,6 +5,7 @@ const Colors = {
   },
   grayScale: {
     black: '#000',
+    grey: '#AAA',
     white: '#FFF',
   },
   green: {
@@ -15,6 +16,7 @@ const Colors = {
 const Shadows = {
   box: {
     cardBasic: '0 5px 30px 0 rgba(0, 0, 0, 0.2)',
+    image: '8px 8px 10px #AAA',
   },
 };
 

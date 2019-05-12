@@ -3,51 +3,37 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
-import Hero from 'react-bulma-components/lib/components/hero';
-import Container from 'react-bulma-components/lib/components/container';
-import Section from 'react-bulma-components/lib/components/section';
 import BasicLayout from '../components/BasicLayout';
 import Seo from '../components/Seo';
+import { StyledBlueH1 } from '../styles/common';
 
-const StyledSection = styled(Section)`
-  h1 {
-    color: #4c9cdf;
-    text-align: center;
-  }
+const StyledSection = styled.section`
+  margin-bottom: 2rem;
+  position: relative;
+  text-align: center;
+
   p {
-    color: #fff;
-    margin-top: -1.8rem;
-    position: relative;
+    color: ${props => props.theme.Colors.grayScale.white};
+    bottom: 0;
+    position: absolute;
     text-align: right;
+    right: 0.5rem;
   }
 `;
 
 const Page404 = ({ data }) => {
   const { notFoundPicture } = data;
   return (
-    <BasicLayout
-      withNav
-      withFooter
-      render={() => (
-        <>
-          <Seo title="404 Not Found" />
-          <StyledSection>
-            <Hero>
-              <Hero.Body>
-                <Container>
-                  <h1>Page Not Found</h1>
-                  <Img
-                    fluid={notFoundPicture.childImageSharp.fluid}
-                    alt="empyt note"
-                  />
-                  <p>Photo by Kelly Sikkema on Unsplash</p>
-                </Container>
-              </Hero.Body>
-            </Hero>
-          </StyledSection>
-        </>
-      )}
-    />
+    <BasicLayout>
+      <React.Fragment>
+        <Seo title="404 Not Found" />
+        <StyledSection>
+          <StyledBlueH1>Page Not Found</StyledBlueH1>
+          <Img fluid={notFoundPicture.childImageSharp.fluid} alt="empyt note" />
+          <p>Photo by: Kelly Sikkema</p>
+        </StyledSection>
+      </React.Fragment>
+    </BasicLayout>
   );
 };
 

@@ -6,10 +6,11 @@ import styled from 'styled-components';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import BasicLayout from '../components/BasicLayout';
 import SEO from '../components/Seo';
-// import { rhythm } from '../utils/typography';
 import { StyledBlueH1 } from '../styles/common';
 
 const StyledArticle = styled.article`
+  display: grid;
+
   h1 {
     text-align: center;
   }
@@ -17,15 +18,10 @@ const StyledArticle = styled.article`
   p {
     font-size: 1.125rem;
   }
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
 `;
 
-const StyledSection = styled.section``;
-
 const StyleImage = styled(Img)`
-  box-shadow: 8px 8px 10px #aaa;
+  box-shadow: ${props => props.theme.Shadows.box.image};
   border-radius: 5px;
 `;
 
@@ -57,18 +53,18 @@ NonStretchedImage.propTypes = {
 const About = ({ data }) => {
   const { profilePicture } = data;
   return (
-    <BasicLayout withNav withFooter>
+    <BasicLayout>
       <Fragment>
         <SEO
           title="About Randy"
           keywords={['blog', 'javascript', 'programming', 'code', 'developer']}
         />
         <StyledArticle>
-          <StyledSection>
+          <section>
             <StyledBlueH1>About Me and the Blog</StyledBlueH1>
             {NonStretchedImage(profilePicture.childImageSharp)}
-          </StyledSection>
-          <StyledSection>
+          </section>
+          <section>
             <h2>About me</h2>
             <p>
               My name is Randy Perez and I am a Software Developer from Santo
@@ -110,8 +106,8 @@ const About = ({ data }) => {
               start my mornings with a visit to my local gym!
             </p>
             <p>Obviously, coffee is life!!</p>
-          </StyledSection>
-          <StyledSection>
+          </section>
+          <section>
             <h2>Purpose of the Blog</h2>
             <p>
               The main reason that brings my blog into existence is having an
@@ -130,8 +126,8 @@ const About = ({ data }) => {
               there&#39;s plenty of professional and personal benefits that come
               with this, sometimes overlooked, skill.
             </p>
-          </StyledSection>
-          <StyledSection>
+          </section>
+          <section>
             <h2>Contact me</h2>
             <p>
               If you would like to share any proposal that matches my interests,
@@ -139,7 +135,7 @@ const About = ({ data }) => {
               sports and/or code don&#39;t hesitate to{' '}
               <Link to="contact">contact me</Link>.
             </p>
-          </StyledSection>
+          </section>
         </StyledArticle>
       </Fragment>
     </BasicLayout>

@@ -6,7 +6,9 @@ const Colors = {
   grayScale: {
     black: '#000',
     grey: '#AAA',
+    grey1: '#333',
     white: '#FFF',
+    whiteSmoke: '#F5F5F5',
   },
   green: {
     aqua: '#3BB3A1',

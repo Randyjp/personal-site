@@ -14,9 +14,14 @@ const StyledList = styled.ul`
   }
 `;
 
+const StyledBlueH1 = styled.h1`
+  color: ${({ theme: { Colors } }) => Colors.blue.light};
+  font-size: 2.2rem;
+`;
+
 const StyledH2 = styled.h2`
   color: ${({ theme: { Colors } }) => Colors.blue.light};
   font-size: 1.5rem;
 `;
 
-export { StyledList, StyledH2, GlobalStyle };
+export { StyledList, StyledH2, GlobalStyle, StyledBlueH1 };

@@ -35,12 +35,13 @@ class Nav extends Component {
       <StaticQuery
         query={logoQuery}
         render={({ logo }) => (
+          // TODO: remove margin bottom
           <Container
             style={{
               marginTop: '1.5rem',
             }}
           >
-            <Box>
+            <Box style={{ marginBottom: '1rem' }}>
               <Navbar color="white" active={open}>
                 <Navbar.Brand>
                   <Link to="/" className="navbar-item">

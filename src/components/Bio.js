@@ -11,7 +11,7 @@ import {
   faGithub,
 } from '@fortawesome/free-brands-svg-icons';
 import FaIcon from './FaIcon';
-import StyledList from '../styles/common';
+import { StyledList } from '../styles/common';
 
 const StyledImage = styled(Image)`
   border-radius: 100%;

@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { ThemeProvider } from 'styled-components';
+import theme from '../theme';
+import { GlobalStyle } from '../styles/common';
 import Nav from './Nav';
 import Footer from './Footer';
 
 const BasicLayout = ({ render, withNav, withFooter }) => (
-  <>
-    {withNav && <Nav />}
-    {render()}
-    {withFooter && <Footer />}
-  </>
+  <ThemeProvider theme={theme}>
+    <Fragment>
+      {withNav && <Nav />}
+      {render()}
+      {withFooter && <Footer />}
+      <GlobalStyle />
+    </Fragment>
+  </ThemeProvider>
 );
 
 BasicLayout.propTypes = {

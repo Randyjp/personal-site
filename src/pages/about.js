@@ -13,7 +13,7 @@ import { rhythm } from '../utils/typography';
 
 const StyledArticle = styled.article`
   h1 {
-    color: #4c9cdf;
+    color: ${({ theme: { Colors } }) => Colors.blue.light};
     text-align: center;
   }
   .section {
@@ -42,6 +42,14 @@ const NonStretchedImage = props => {
   }
 
   return <StyleImage {...normalizedProps} />;
+};
+
+NonStretchedImage.propTypes = {
+  fluid: PropTypes.shape({
+    presentationWidth: PropTypes.number.isRequired,
+  }).isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  style: PropTypes.object.isRequired,
 };
 
 const About = ({ data }) => {

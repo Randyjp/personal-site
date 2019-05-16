@@ -52,8 +52,7 @@
     "react-share": "^2.4.0",
     "react-typography": "^0.16.18",
     "styled-components": "^4.1.2",
-    "typography": "^0.16.18",
-    "typography-theme-parnassus": "^0.16.18"
+    "typography": "^0.16.18"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",

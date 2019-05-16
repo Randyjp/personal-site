@@ -22,7 +22,7 @@ const BlogList = ({ pageContext }) => {
   ));
 
   return (
-    <BasicLayout>
+    <BasicLayout withContainer={false}>
       <>
         <Seo
           title="All blog posts."

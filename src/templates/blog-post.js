@@ -73,7 +73,7 @@ const BlogPost = ({ data, pageContext }) => {
   const { previous, next, slug } = pageContext;
   const formattedDate = format(parse(date), 'MMM D, YYYY');
   return (
-    <BasicLayout>
+    <BasicLayout withContainer={false}>
       <React.Fragment>
         <SEO title={title} description={shortDescription} keywords={tags} />
         <StyledArticle>

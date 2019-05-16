@@ -18,12 +18,13 @@ const StyledContainer = styled.div`
     padding-right: 3.5rem;
   `}
 `;
+// TODO: remove withContainer
 
-const BasicLayout = ({ children, withNav, withFooter }) => (
+const BasicLayout = ({ children, withNav, withFooter, withContainer }) => (
   <ThemeProvider theme={theme}>
     <Fragment>
       {withNav && <Nav />}
-      <StyledContainer>{children}</StyledContainer>
+      {withContainer ? <StyledContainer>{children}</StyledContainer> : children}
       {withFooter && <Footer />}
       <GlobalStyle />
     </Fragment>
@@ -34,11 +35,13 @@ BasicLayout.propTypes = {
   children: PropTypes.element.isRequired,
   withNav: PropTypes.bool,
   withFooter: PropTypes.bool,
+  withContainer: PropTypes.bool,
 };
 
 BasicLayout.defaultProps = {
   withNav: true,
   withFooter: true,
+  withContainer: true,
 };
 
 export default BasicLayout;

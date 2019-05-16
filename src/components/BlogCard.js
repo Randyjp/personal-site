@@ -15,12 +15,9 @@ const StyledCard = styled.div`
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
   color: ${props => props.theme.Colors.grayScale.black};
   height: 100%;
-  /* max-width: 100%; */
   display: flex;
   flex-direction: column;
   transition: box-shadow 0.2s ease-in-out;
-  /* position: relative; */
-
   display: flex;
 
   :hover {
@@ -35,35 +32,27 @@ const StyledCard = styled.div`
 `;
 
 const StyledCardContent = styled.div`
-  padding: 1rem;
   display: flex;
-  flex-direction: column;
-  /* position: relative; */
   flex: 0 1 auto;
+  flex-direction: column;
+  padding: 1rem;
 `;
 
-const StyledFigure = styled.div`
-  /* max-height: 33%; */
+const StyledImageContainer = styled.div`
+  flex: 0 1 auto;
   padding-top: 75%;
   position: relative;
-  /* overflow: hidden; */
-  /* height: 0; */
-  width: 100%;
-  flex: 0 1 auto;
 
   figure {
-    position: absolute;
     height: 100%;
+    left: 0;
+    position: absolute;
     right: 0;
     top: 0;
-    left: 0;
   }
+
   img {
     height: 100%;
-    /* display: block; */
-    /* position: relative; */
-    /* left: 0; */
-    /* object-fit: contain; */
     width: 100%;
   }
 `;
@@ -75,11 +64,11 @@ Card.propTypes = {
 };
 
 const Image = ({ imageSrc, imgAtl }) => (
-  <StyledFigure>
+  <StyledImageContainer>
     <figure>
       <img src={imageSrc} alt={imgAtl} />
     </figure>
-  </StyledFigure>
+  </StyledImageContainer>
 );
 
 Image.propTypes = {

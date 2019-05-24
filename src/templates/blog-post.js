@@ -13,7 +13,7 @@ import { faClock } from '@fortawesome/free-solid-svg-icons';
 
 // eslint-disable-next-line
 import Pagination from 'react-bulma-components/lib/components/pagination';
-import BasicLayout from '../components/BasicLayout';
+import BasicLayout, { CONTAINER_TYPE } from '../components/BasicLayout';
 import Comments from '../components/Comments';
 import { rhythm } from '../utils/typography';
 import Bio from '../components/Bio';
@@ -73,7 +73,7 @@ const BlogPost = ({ data, pageContext }) => {
   const { previous, next, slug } = pageContext;
   const formattedDate = format(parse(date), 'MMM D, YYYY');
   return (
-    <BasicLayout withContainer={false}>
+    <BasicLayout containerType={CONTAINER_TYPE.NOTHING}>
       <React.Fragment>
         <SEO title={title} description={shortDescription} keywords={tags} />
         <StyledArticle>

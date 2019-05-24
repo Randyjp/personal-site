@@ -28,24 +28,20 @@ const TagsPage = ({
     allMarkdownRemark: { group },
   },
 }) => (
-  <BasicLayout
-    withFooter
-    withNav
-    render={() => (
-      <StyledSection>
-        <h1>Tags</h1>
-        <StyledList>
-          {group.map(({ fieldValue, totalCount }) => (
-            <li key={fieldValue}>
-              <Link to={`/tags/${kebabCase(fieldValue)}`}>
-                {fieldValue} ({totalCount})
-              </Link>
-            </li>
-          ))}
-        </StyledList>
-      </StyledSection>
-    )}
-  />
+  <BasicLayout>
+    <StyledSection>
+      <h1>Tags</h1>
+      <StyledList>
+        {group.map(({ fieldValue, totalCount }) => (
+          <li key={fieldValue}>
+            <Link to={`/tags/${kebabCase(fieldValue)}`}>
+              {fieldValue} ({totalCount})
+            </Link>
+          </li>
+        ))}
+      </StyledList>
+    </StyledSection>
+  </BasicLayout>
 );
 
 TagsPage.propTypes = {

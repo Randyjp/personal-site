@@ -1,14 +1,19 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import styled from 'styled-components';
 import Columns from 'react-bulma-components/lib/components/columns';
-import Section from 'react-bulma-components/lib/components/section';
-import Container from 'react-bulma-components/lib/components/container';
 // eslint-disable-next-line
 import Pagination from 'react-bulma-components/lib/components/pagination';
 import PropTypes from 'prop-types';
 import BlogCard from '../components/BlogCard';
-import BasicLayout from '../components/BasicLayout';
+import { WideLayout } from '../components/BasicLayout';
 import Seo from '../components/Seo';
+
+const StyledGridContainer = styled.div`
+  display: grid;
+  grid-gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(18.75rem, 1fr));
+`;
 
 const BlogList = ({ pageContext }) => {
   const { group, index, pageCount } = pageContext;
@@ -16,26 +21,20 @@ const BlogList = ({ pageContext }) => {
   const previous = index > 1 ? index - 1 : null;
 
   const blogs = group.map(blog => (
-    <Columns.Column size="one-third" key={blog.node.fields.slug}>
-      <BlogCard blog={blog.node} />
-    </Columns.Column>
+    <BlogCard blog={blog.node} key={blog.node.fields.slug} />
   ));
 
   return (
-    <BasicLayout withContainer={false}>
-      <>
+    <WideLayout>
+      <React.Fragment>
         <Seo
           title="All blog posts."
           keywords={['blog', 'javascript', 'programming', 'code', 'developer']}
         />
-        <Section>
-          <Container>
-            <Columns>{blogs}</Columns>
-          </Container>
-        </Section>
+        <StyledGridContainer>{blogs}</StyledGridContainer>
         <BlogPagination previous={previous} next={next} />
-      </>
-    </BasicLayout>
+      </React.Fragment>
+    </WideLayout>
   );
 };
 

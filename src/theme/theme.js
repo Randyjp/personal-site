@@ -1,5 +1,6 @@
 const Colors = {
   blue: {
+    blue1: '#3273DC',
     light: '#4C9CDF',
     light2: '#0097FE',
   },
@@ -7,6 +8,7 @@ const Colors = {
     black: '#000',
     grey: '#AAA',
     grey1: '#333',
+    grey2: '#DBDBDB',
     white: '#FFF',
     whiteSmoke: '#F5F5F5',
   },

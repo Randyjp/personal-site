@@ -1,18 +1,16 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
-import Columns from 'react-bulma-components/lib/components/columns';
-// eslint-disable-next-line
-import Pagination from 'react-bulma-components/lib/components/pagination';
 import PropTypes from 'prop-types';
 import BlogCard from '../components/BlogCard';
 import { WideLayout } from '../components/BasicLayout';
+import BlogPagination from '../components/Pagination';
 import Seo from '../components/Seo';
 
 const StyledGridContainer = styled.div`
   display: grid;
   grid-gap: 1.25rem;
   grid-template-columns: repeat(auto-fill, minmax(18.75rem, 1fr));
+  margin-bottom: 3.75rem;
 `;
 
 const BlogList = ({ pageContext }) => {
@@ -36,53 +34,6 @@ const BlogList = ({ pageContext }) => {
       </React.Fragment>
     </WideLayout>
   );
-};
-
-const BlogPagination = ({ previous, next }) => {
-  const localPrevious = previous === 1 ? '' : previous;
-  return (
-    <Columns.Column
-      style={{
-        marginTop: '60px',
-      }}
-    >
-      <nav
-        className="pagination is-centered is-medium"
-        role="navigation"
-        aria-label="pagination"
-      >
-        {previous && (
-          <Link
-            className="pagination-previous"
-            to={`/blog-list/${localPrevious}`}
-          >
-            ← Newer Posts
-          </Link>
-        )}
-        {next && (
-          <Link
-            className="pagination-next is-right"
-            to={`/blog-list/${next}`}
-            style={{
-              marginLeft: 'auto',
-            }}
-          >
-            Older Posts →
-          </Link>
-        )}
-      </nav>
-    </Columns.Column>
-  );
-};
-
-BlogPagination.propTypes = {
-  previous: PropTypes.number,
-  next: PropTypes.number,
-};
-
-BlogPagination.defaultProps = {
-  previous: null,
-  next: null,
 };
 
 BlogList.propTypes = {

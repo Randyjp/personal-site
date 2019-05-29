@@ -1,5 +1,5 @@
 ---
-title: Counting Sort in Python.
+title: Counting Sort in Python
 author: [RandyPerez]
 date: '2019-05-29'
 attachments:
@@ -7,8 +7,6 @@ attachments:
 shortDescription: 'Sorting integers in linear time.'
 tags: ['algorithms', 'python', 'sorting', 'counting-sort']
 ---
-
-# Counting Sort
 
 If you have taken an algorithms class or tutorial then I bet there are a few questions that you can answer in the blink of an eye:
 

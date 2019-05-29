@@ -1,10 +1,10 @@
 ---
-title: Gotchas when deploying Gatsby to Netlify.
+title: Gotchas when deploying Gatsby to Netlify
 author: [RandyPerez]
 date: '2019-04-22'
 attachments:
   - './server.jpg'
-shortDescription: 'Issues I found while deploying my site'
+shortDescription: 'Issues I found while deploying my site.'
 tags: ['javascript', 'gatsby.js', 'react', 'web development', 'Netlify']
 ---
 

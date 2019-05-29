@@ -8,8 +8,6 @@ shortDescription: 'Sorting integers in linear time'
 tags: ['algorithms', 'python', 'sorting', 'counting-sort']
 ---
 
-# Counting Sort
-
 If you have taken an algorithms class or tutorial then I bet there are a few questions that you can answer in the blink of an eye:
 
 - What's the lookup time of arrays? easy, O(1).

@@ -35,10 +35,11 @@ class Nav extends Component {
       <StaticQuery
         query={logoQuery}
         render={({ logo }) => (
-          // TODO: remove margin bottom
+          // TODO: remove margin
           <Container
             style={{
               marginTop: '1.5rem',
+              marginBottom: '2.5rem',
             }}
           >
             <Box style={{ marginBottom: '1rem' }}>

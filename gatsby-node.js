@@ -78,12 +78,16 @@ exports.createPages = ({ graphql, actions }) => {
           },
         });
       });
+      // TODO: remove when fix to https://github.com/pixelstew/gatsby-paginate/issues/46 gets merged.
+      const buildPath = (index, pathPrefix) =>
+        index > 1 ? `${pathPrefix}/${index}` : pathPrefix || `/`;
+
       createPaginatedPages({
         edges: blogPosts,
         createPage,
         pageTemplate: './src/templates/blog-list.js',
         pageLength: 6,
-        pathPrefix: '',
+        buildPath,
       });
       // CREATE tags pages
       const tags = [];

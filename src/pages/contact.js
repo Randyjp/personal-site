@@ -4,7 +4,9 @@ import ContactForm from '../components/ContactForm';
 
 export default () => (
   <BasicLayout>
-    <h1>Let&apos;s get in touch</h1>
-    <ContactForm />
+    <React.Fragment>
+      <h1>Let&apos;s get in touch</h1>
+      <ContactForm />
+    </React.Fragment>
   </BasicLayout>
 );

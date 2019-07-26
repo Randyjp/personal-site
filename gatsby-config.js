@@ -90,7 +90,7 @@ module.exports = {
           }
         }
         `,
-            output: 'rss.xml',
+            output: '/rss.xml',
             title: 'Randy Perez Blog RSS Feed.',
           },
         ],

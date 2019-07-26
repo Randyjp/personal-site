@@ -83,7 +83,6 @@ exports.createPages = ({ graphql, actions }) => {
         createPage,
         pageTemplate: './src/templates/blog-list.js',
         pageLength: 6,
-        pathPrefix: '',
       });
       // CREATE tags pages
       const tags = [];

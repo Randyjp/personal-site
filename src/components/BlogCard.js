@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
 import { format, parse } from 'date-fns';
 import styled from 'styled-components';
@@ -38,41 +39,22 @@ const StyledCardContent = styled.div`
   padding: 1rem;
 `;
 
-const StyledImageContainer = styled.div`
-  flex: 0 1 auto;
-  padding-top: 75%;
-  position: relative;
-
-  figure {
-    height: 100%;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-
-  img {
-    height: 100%;
-    width: 100%;
-  }
-`;
-
 const Card = ({ children }) => <StyledCard>{children}</StyledCard>;
 
 Card.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element).isRequired,
 };
 
-const Image = ({ imageSrc, imgAtl }) => (
-  <StyledImageContainer>
-    <figure>
-      <img src={imageSrc} alt={imgAtl} />
-    </figure>
-  </StyledImageContainer>
-);
+const Image = ({ imageSrc, imgAtl }) => <Img fluid={imageSrc} alt={imgAtl} />;
 
 Image.propTypes = {
-  imageSrc: PropTypes.string.isRequired,
+  imageSrc: PropTypes.shape({
+    aspectRatio: PropTypes.number.isRequired,
+    base64: PropTypes.string.isRequired,
+    sizes: PropTypes.string.isRequired,
+    src: PropTypes.string.isRequired,
+    srcSet: PropTypes.string.isRequired,
+  }).isRequired,
   imgAtl: PropTypes.string,
 };
 
@@ -94,13 +76,16 @@ Card.Content = Content;
 const BlogCard = ({ blog }) => {
   const {
     fields: { slug },
-    frontmatter: { title, date, attachments, shortDescription },
+    frontmatter: { title, date, featuredImage, shortDescription },
   } = blog;
   const formattedDate = format(parse(date), 'MMM D, YYYY');
   return (
     <Link to={slug}>
       <Card>
-        <Card.Image imageSrc={attachments[0].publicURL} />
+        <Card.Image
+          imageSrc={featuredImage.childImageSharp.fluid}
+          imgAtl={title}
+        />
         <Card.Content>
           <StyledTime dateTime={date}>{formattedDate}</StyledTime>
           <StyledH2>{title}</StyledH2>
@@ -117,7 +102,9 @@ BlogCard.propTypes = {
       title: PropTypes.string.isRequired,
       author: PropTypes.array.isRequired,
       date: PropTypes.string.isRequired,
-      attachments: PropTypes.arrayOf(PropTypes.object).isRequired,
+      featuredImage: PropTypes.shape({
+        childImageSharp: PropTypes.object.isRequired,
+      }).isRequired,
       shortDescription: PropTypes.string.isRequired,
     }).isRequired,
     fields: PropTypes.shape({

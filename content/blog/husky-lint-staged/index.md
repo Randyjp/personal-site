@@ -2,8 +2,7 @@
 title: Setting up Husky and Lint-Staged
 author: [RandyPerez]
 date: '2019-03-18'
-attachments:
-  - './filter.jpg'
+featuredImage: './filter.jpg'
 shortDescription: 'Automate your ESLint and Prettier workflow.'
 tags:
   [

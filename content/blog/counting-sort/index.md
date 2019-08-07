@@ -2,8 +2,7 @@
 title: Counting Sort in Python
 author: [RandyPerez]
 date: '2019-05-29'
-attachments:
-  - './sheep.jpg'
+featuredImage: './sheep.jpg'
 shortDescription: 'Sorting integers in linear time.'
 tags: ['algorithms', 'python', 'sorting', 'counting-sort']
 ---

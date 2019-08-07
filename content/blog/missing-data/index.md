@@ -2,8 +2,7 @@
 title: Handling Missing Data with Pandas
 author: [RandyPerez]
 date: '2019-07-23'
-attachments:
-  - './missing.jpeg'
+featuredImage: './missing.jpeg'
 shortDescription: 'Most Machine Learning need a complete dataset.'
 tags: ['machine learning', 'data science', 'pandas', 'python']
 ---

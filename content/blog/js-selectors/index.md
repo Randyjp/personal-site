@@ -1,11 +1,10 @@
 ---
 title: Difference between DOM selecting Methods
 author: [RandyPerez]
-date: "2019-02-08"
-attachments:
-  - "./select.jpg"
-shortDescription: "How and when to use them based on performance and syntax."
-tags: ["javascript", "selectors", "vanilla", "web development"]
+date: '2019-02-08'
+featuredImage: './select.jpg'
+shortDescription: 'How and when to use them based on performance and syntax.'
+tags: ['javascript', 'selectors', 'vanilla', 'web development']
 ---
 
 Nowadays whenever I need to grab an HTML element from the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model), I reach for [querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector) or [querySelectorAll](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll). They feel intuitive because we can use CSS syntax to select any node. However, there are other methods that serve a similar purpose, but I never use them; like [getElementById](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById) and the [getElementsBy\*](https://developer.mozilla.org/en-US/docs/Web/API/Document#Methods) family.
@@ -54,7 +53,7 @@ To play around with selectors, I'll be using a small HTML file with four divs an
 Let's start with `getElementById()`, which has been around for years. It takes a string as its only parameter and returns the HTML [element](https://developer.mozilla.org/en-US/docs/Web/API/Element) that has a matching ID. Valid HTML requires unique IDs in every document thus we are expecting not more than one match.
 
 ```javascript
-const blueTitle = document.getElementById("blue-title");
+const blueTitle = document.getElementById('blue-title');
 console.log(blueTitle); // <h3 id="blue-title">Container title blue</h3>
 ```
 
@@ -62,11 +61,11 @@ When selecting elements that don't necessarily have an ID attribute we can use `
 
 ```javascript
 // Any valid CSS selector and that includes IDs
-const blueTitle = document.querySelector("#blue-title"); // <h3 id="blue-title">Container title blue</h3>
+const blueTitle = document.querySelector('#blue-title'); // <h3 id="blue-title">Container title blue</h3>
 // there's 4 h3 tags in the document but red is the first one.
-const redTitle = document.querySelector("h3"); //<h3>Container title red</h3>
+const redTitle = document.querySelector('h3'); //<h3>Container title red</h3>
 // Can use multiple selectors.
-const greenSub = document.querySelector(".green span p"); // <p>Sub-title green</p>
+const greenSub = document.querySelector('.green span p'); // <p>Sub-title green</p>
 ```
 
 ### Performance
@@ -97,13 +96,13 @@ Let's try **getElementsByClassName** first, as its names suggest it takes a clas
 
 ```javascript
 // getElementsByClassName
-const containers = document.getElementsByClassName("container");
+const containers = document.getElementsByClassName('container');
 // Selecting the first element.
 console.log(containers[0]);
 // IT's ALIVEEE!!
 console.log(containers); // HTMLCollection(4) [div.container.red, ...]
 // Edit the DOM.
-const body = document.querySelector("body");
+const body = document.querySelector('body');
 body.appendChild(greenContainer.cloneNode());
 console.log(containers); // HTMLCollection(5) [div.container.red, ...]
 // to Iterate
@@ -129,12 +128,12 @@ Last but not least is **querySelectorAll**, It expects a string with one or more
 
 ```javascript
 // querySelectorAll
-const containersQuery = document.querySelectorAll(".container");
+const containersQuery = document.querySelectorAll('.container');
 console.log(containersQuery);
 // Selecting the third node.
 console.log(containersQuery[2]);
 // edit an element's text content.
-containersQuery.item(2).textContent = "hi";
+containersQuery.item(2).textContent = 'hi';
 // He's dead JIM!!!
 console.log(containersQuery); // NodeList(4) [div.container.red, ...]
 // Edit the DOM.

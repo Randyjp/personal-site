@@ -45,8 +45,16 @@ exports.createPages = ({ graphql, actions }) => {
                 date
                 shortDescription
                 tags
-                attachments {
-                  publicURL
+                featuredImage {
+                  childImageSharp {
+                    fluid(maxWidth: 630, maxHeight: 472) {
+                      base64
+                      aspectRatio
+                      src
+                      srcSet
+                      sizes
+                    }
+                  }
                 }
               }
               fields {

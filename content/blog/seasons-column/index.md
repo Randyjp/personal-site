@@ -2,8 +2,7 @@
 title: Adding a Seasons Column to A Pandas Dataset
 author: [RandyPerez]
 date: '2019-07-25'
-attachments:
-  - './seasons.jpg'
+featuredImage: './seasons.jpg'
 shortDescription: "Boost your model's predictive powers."
 tags: ['machine learning', 'data science', 'pandas', 'python']
 ---

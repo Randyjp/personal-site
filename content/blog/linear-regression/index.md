@@ -2,8 +2,7 @@
 title: Linear Regression Using Python
 author: [RandyPerez]
 date: '2019-01-29'
-attachments:
-  - './graph.jpg'
+featuredImage: './graph.jpg'
 shortDescription: 'Introduction to linear models in Python using baseball data.'
 tags: ['python', 'data science', 'statistics', 'sports', 'baseball']
 ---

@@ -2,8 +2,7 @@
 title: Beginner's guide to ESLint and Prettier
 author: [RandyPerez]
 date: '2019-02-25'
-attachments:
-  - './screenCode.jpg'
+featuredImage: './screenCode.jpg'
 shortDescription: 'Understand and bring linting and formatting into your projects.'
 tags: ['eslint', 'prettier', 'javascript', 'web development']
 ---

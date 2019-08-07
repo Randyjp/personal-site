@@ -25,6 +25,10 @@ const StyledWideContainer = styled(StyledContainer)`
   `}
 `;
 
+const StyledContent = styled.div`
+  flex: 1 0 auto;
+`;
+
 const CONTAINER_TYPE = Object.freeze({
   WIDE: 'wide',
   STANDARD: 'standard',
@@ -45,8 +49,10 @@ const BasicLayout = ({ children, withNav, withFooter, containerType }) => {
   return (
     <ThemeProvider theme={theme}>
       <Fragment>
-        {withNav && <Nav />}
-        {getContainer()}
+        <StyledContent>
+          {withNav && <Nav />}
+          {getContainer()}
+        </StyledContent>
         {withFooter && <Footer />}
         <GlobalStyle />
       </Fragment>

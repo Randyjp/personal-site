@@ -18,6 +18,7 @@ const StyledFooter = styled.div`
   color: ${props => props.theme.Colors.grayScale.whiteSmoke};
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   padding: 1rem;
 
   ${breakpoint('desktop')`

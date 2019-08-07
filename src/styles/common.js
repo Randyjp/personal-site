@@ -4,6 +4,16 @@ const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
   }
+
+  html, body, #___gatsby {
+    height: 100%;
+  }
+
+  #gatsby-focus-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
 `;
 
 const StyledList = styled.ul`

@@ -10,8 +10,9 @@ const StyledNav = styled.nav`
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
 
-  ${breakpoint('tablet')`
+  ${breakpoint('desktop')`
     flex-direction: row;
+    font-size: 1.125rem;
   `}
 `;
 
@@ -20,11 +21,11 @@ const StyledPaginationLink = styled(Link)`
   border-radius: 0.3125rem;
   color: ${props => props.theme.Colors.grayScale.black};
   margin-bottom: 1rem;
+  margin-right: 1.5rem;
   min-width: 3rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   text-align: center;
-  white-space: nowrap;
   width: 100%;
 
   :hover {
@@ -36,33 +37,42 @@ const StyledPaginationLink = styled(Link)`
     border: 0.0625rem solid ${props => props.theme.Colors.blue.blue1};
   }
 
-  ${breakpoint('tablet')`
+  ${breakpoint('desktop')`
     width: auto;
   `}
 `;
 
 const StyledNewLink = styled(StyledPaginationLink)`
   margin-left: auto;
+  margin-right: 0;
 `;
 
-// TODO: make it more generic, get the base url from props.
 const Pagination = ({ previous, next }) => {
-  const localPrevious = previous === 1 ? '' : previous;
   return (
     <StyledNav role="navigation" aria-label="pagination">
       {previous && (
-        <StyledPaginationLink to={`/${localPrevious}`}>
-          ← Newer Posts
+        <StyledPaginationLink to={previous.url}>
+          ← {previous.text || `Newer Posts`}
         </StyledPaginationLink>
       )}
-      {next && <StyledNewLink to={`/${next}`}>Older Posts →</StyledNewLink>}
+      {next && (
+        <StyledNewLink to={next.url}>
+          {next.text || `Older Posts`} →
+        </StyledNewLink>
+      )}
     </StyledNav>
   );
 };
 
 Pagination.propTypes = {
-  previous: PropTypes.number,
-  next: PropTypes.number,
+  previous: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+    text: PropTypes.string,
+  }),
+  next: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+    text: PropTypes.string,
+  }),
 };
 
 Pagination.defaultProps = {

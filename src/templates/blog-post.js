@@ -15,6 +15,7 @@ import Pagination from '../components/Pagination';
 
 const StyledArticle = styled.article`
   font-size: 1.125rem;
+  margin-bottom: 2.5rem;
 `;
 
 const StyledSubHeaderContainer = styled.div`

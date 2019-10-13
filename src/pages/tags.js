@@ -3,24 +3,19 @@ import { Link, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import kebabCase from 'lodash/kebabCase';
-import Section from 'react-bulma-components/lib/components/section';
 
 import BasicLayout from '../components/BasicLayout';
-import { rhythm } from '../utils/typography';
+import { StyledBlueH1 } from '../styles/common';
 
-const StyledSection = styled(Section)`
-  h1 {
-    color: #4c9cdf;
-  }
-
-  min-height: calc(100vh - 200px);
+const StyledSection = styled.section`
   text-align: center;
 `;
 
 const StyledList = styled.ul`
+  display: grid;
+  font-size: 1.08rem;
+  grid-template-columns: repeat(auto-fill, minmax(15.75rem, 1fr));
   list-style: none;
-  text-align: center;
-  font-size: ${rhythm(6 / 10)};
 `;
 
 const TagsPage = ({
@@ -30,7 +25,7 @@ const TagsPage = ({
 }) => (
   <BasicLayout>
     <StyledSection>
-      <h1>Tags</h1>
+      <StyledBlueH1>Tags</StyledBlueH1>
       <StyledList>
         {group.map(({ fieldValue, totalCount }) => (
           <li key={fieldValue}>

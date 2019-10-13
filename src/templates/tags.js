@@ -2,58 +2,36 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
-import Columns from 'react-bulma-components/lib/components/columns';
-import Container from 'react-bulma-components/lib/components/container';
-import Section from 'react-bulma-components/lib/components/section';
 
 import BasicLayout from '../components/BasicLayout';
-import { rhythm } from '../utils/typography';
+import { StyledBlueH1 } from '../styles/common';
 
-const StyledSection = styled(Section)`
-  h1 {
-    color: #4c9cdf;
-  }
-
-  min-height: calc(100vh - 200px);
+const StyledSection = styled.section`
   text-align: center;
 `;
 
 const StyledList = styled.ul`
   list-style: none;
   text-align: center;
-  font-size: ${rhythm(6 / 10)};
+  font-size: 1.08rem;
 `;
 
-const Tags = ({ data, pageContext }) => (
-  <BasicLayout
-    withFooter
-    withNav
-    render={() => {
-      const { edges } = data.allMarkdownRemark;
-      const blogPosts = edges.map(blog => (
-        <li key={blog.node.fields.slug}>
-          <Link to={blog.node.fields.slug}>{blog.node.frontmatter.title}</Link>
-        </li>
-      ));
-      return (
-        <>
-          <StyledSection>
-            <Container>
-              <Columns>
-                <Columns.Column size={12}>
-                  <h1>{`Posts about ${pageContext.tag.toUpperCase()}`}</h1>
-                </Columns.Column>
-                <Columns.Column size={12}>
-                  <StyledList>{blogPosts}</StyledList>
-                </Columns.Column>
-              </Columns>
-            </Container>
-          </StyledSection>
-        </>
-      );
-    }}
-  />
-);
+const Tags = ({ data, pageContext }) => {
+  const { edges } = data.allMarkdownRemark;
+  const blogPosts = edges.map(blog => (
+    <li key={blog.node.fields.slug}>
+      <Link to={blog.node.fields.slug}>{blog.node.frontmatter.title}</Link>
+    </li>
+  ));
+  return (
+    <BasicLayout withFooter withNav>
+      <StyledSection>
+        <StyledBlueH1>{`Posts about ${pageContext.tag.toUpperCase()}`}</StyledBlueH1>
+        <StyledList>{blogPosts}</StyledList>
+      </StyledSection>
+    </BasicLayout>
+  );
+};
 
 Tags.propTypes = {
   data: PropTypes.shape({

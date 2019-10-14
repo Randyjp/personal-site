@@ -1,10 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { Link } from 'gatsby';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
-import Icon from 'react-bulma-components/lib/components/icon';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { isExternalLink } from '../utils/utils';
+
+const Icon = styled.span`
+  align-items: center;
+  display: inline-flex;
+  height: ${props => props.dimensions.height};
+  justify-content: center;
+  width: ${props => props.dimensions.width};
+`;
+
+function getDimensions(containerSize) {
+  switch (containerSize) {
+    case 'small':
+      return { height: '1.5rem', width: '1.5rem' };
+
+    case 'medium':
+      return { height: '2rem', width: '2rem' };
+
+    case 'large':
+      return { height: '4.5rem', width: '4.5rem' };
+
+    default:
+      return { height: '1.5rem', width: '1.5rem' };
+  }
+}
 
 const FaIcon = ({
   icon,
@@ -16,6 +40,8 @@ const FaIcon = ({
   cssClass,
 }) => {
   const name = displayName ? <span>{displayName}</span> : null;
+  const dimensions = getDimensions(containerSize);
+
   if (isExternalLink(url)) {
     return (
       <OutboundLink
@@ -24,7 +50,7 @@ const FaIcon = ({
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Icon size={containerSize}>
+        <Icon dimensions={dimensions}>
           <FontAwesomeIcon icon={icon} size={iconSize} color={color} />
         </Icon>
         {name}
@@ -35,10 +61,10 @@ const FaIcon = ({
   return (
     <Link className={cssClass} activeClassName="is-active" to={url}>
       {/* adds classname navbar-item to use bulma styles on gatsby links */}
-      <Icon size={containerSize}>
+      <Icon dimensions={dimensions}>
         <FontAwesomeIcon icon={icon} size={iconSize} color={color} />
       </Icon>
-     {name}
+      {name}
     </Link>
   );
 };
@@ -59,7 +85,7 @@ FaIcon.propTypes = {
 
 FaIcon.defaultProps = {
   displayName: null,
-  containerSize: 'auto',
+  containerSize: 'small',
   iconSize: '1x',
   cssClass: null,
 };

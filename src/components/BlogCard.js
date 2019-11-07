@@ -36,6 +36,7 @@ const StyledCardContent = styled.div`
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
+  justify-content: space-between;
   padding: 1rem;
 `;
 

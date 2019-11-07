@@ -34,7 +34,7 @@ const StyledCard = styled.div`
 
 const StyledCardContent = styled.div`
   display: flex;
-  flex: 0 1 auto;
+  flex: 1 1 auto;
   flex-direction: column;
   padding: 1rem;
 `;

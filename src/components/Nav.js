@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StaticQuery, graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import Navbar from 'react-bulma-components/lib/components/navbar';
-import Box from 'react-bulma-components/lib/components/box';
+// import Box from 'react-bulma-components/lib/components/box';
 import Container from 'react-bulma-components/lib/components/container';
 import {
   faBlog,
@@ -42,49 +42,47 @@ class Nav extends Component {
               marginBottom: '2.5rem',
             }}
           >
-            <Box style={{ marginBottom: '1rem' }}>
-              <Navbar color="white" active={open}>
-                <Navbar.Brand>
-                  <Link to="/" className="navbar-item">
-                    <Img fixed={logo.childImageSharp.fixed} />
-                  </Link>
-                  <Navbar.Burger
-                    onClick={() => this.setState({ open: !open })}
+            {/* <Box style={{ marginBottom: '1rem' }}> */}
+            <Navbar color="white" active={open}>
+              <Navbar.Brand>
+                <Link to="/" className="navbar-item">
+                  <Img fixed={logo.childImageSharp.fixed} />
+                </Link>
+                <Navbar.Burger onClick={() => this.setState({ open: !open })} />
+              </Navbar.Brand>
+              <Navbar.Menu>
+                <Navbar.Container position="end">
+                  <FaIcon
+                    displayName="Blog"
+                    icon={faBlog}
+                    color="orange"
+                    url="/"
+                    cssClass="navbar-item"
                   />
-                </Navbar.Brand>
-                <Navbar.Menu>
-                  <Navbar.Container position="end">
-                    <FaIcon
-                      displayName="Blog"
-                      icon={faBlog}
-                      color="orange"
-                      url="/"
-                      cssClass="navbar-item"
-                    />
-                    <FaIcon
-                      displayName="About"
-                      icon={faAddressCard}
-                      color="green"
-                      url="/about"
-                      cssClass="navbar-item"
-                    />
-                    {/* <NavItemLink
+                  <FaIcon
+                    displayName="About"
+                    color="green"
+                    icon={faAddressCard}
+                    url="/about"
+                    cssClass="navbar-item"
+                  />
+                  {/* <NavItemLink
                       name="Services"
                       icon={faKeyboard}
                       color="grey"
                       to="#"
                     /> */}
-                    <FaIcon
-                      displayName="Resume"
-                      icon={faFilePdf}
-                      color="red"
-                      url={resume}
-                      cssClass="navbar-item"
-                    />
-                  </Navbar.Container>
-                </Navbar.Menu>
-              </Navbar>
-            </Box>
+                  <FaIcon
+                    displayName="Resume"
+                    icon={faFilePdf}
+                    color="red"
+                    url={resume}
+                    cssClass="navbar-item"
+                  />
+                </Navbar.Container>
+              </Navbar.Menu>
+            </Navbar>
+            {/* </Box> */}
           </Container>
         )}
       />

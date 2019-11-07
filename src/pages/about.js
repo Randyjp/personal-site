@@ -69,23 +69,23 @@ const About = ({ data }) => {
             <p>
               My name is Randy Perez and I am a Software Developer from Santo
               Domingo, Dominican Republic. I have been programming for 8+ years
-              and professionally for the last 5+ years. Currently, I work for{' '}
+              and professionally for the last 5+ years. I work for{' '}
               <OutboundLink
                 target="_blank"
                 rel="noopener noreferrer"
-                href="http://intellisysdcorp.com"
+                href="https://www.bairesdev.com/"
               >
-                Intellisys
+                BairesDev
               </OutboundLink>{' '}
-              a local outsourcing company that contracts my service to{' '}
+              an international outsourcing company that contracts my service to{' '}
               <OutboundLink
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://www.soul-cycle.com"
+                href="https://www.pinterest.com/"
               >
-                SoulCycle
+                Pinterest
               </OutboundLink>
-              , a fitness company based in NYC.
+              , a social media company based in San Francisco.
             </p>
             <p>
               I consider myself to be a web technology and data science
@@ -122,9 +122,9 @@ const About = ({ data }) => {
               awesome day.
             </p>
             <p>
-              Last but not least, I want to become a better writer since
-              there&#39;s plenty of professional and personal benefits that come
-              with this, sometimes overlooked, skill.
+              Last but not least, I want to become a better writer since there
+              are plenty of professional and personal benefits that come with
+              this, sometimes overlooked, skill.
             </p>
           </section>
           <section>

@@ -1,3 +1,6 @@
 {
-  "cSpell.words": ["frontmatter", "minmax"]
+  "cSpell.words": ["frontmatter", "minmax"],
+  "[javascript]": {
+    "editor.formatOnSave": true
+  }
 }

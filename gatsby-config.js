@@ -106,7 +106,7 @@ module.exports = {
         theme_color: '#FFFFFF',
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
         display: 'standalone',
-        icon: 'content/assets/logo.png',
+        icon: 'content/assets/logo.svg',
       },
     },
     {

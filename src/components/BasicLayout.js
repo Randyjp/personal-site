@@ -39,9 +39,21 @@ const BasicLayout = ({ children, withNav, withFooter, containerType }) => {
   function getContainer() {
     switch (containerType) {
       case CONTAINER_TYPE.WIDE:
-        return <StyledWideContainer>{children}</StyledWideContainer>;
+        // return <StyledWideContainer>{children}</StyledWideContainer>;
+        return (
+          <StyledWideContainer>
+            {withNav && <Nav />}
+            {children}
+          </StyledWideContainer>
+        );
       case CONTAINER_TYPE.STANDARD:
-        return <StyledContainer>{children}</StyledContainer>;
+        // return <StyledContainer>{children}</StyledContainer>;
+        return (
+          <StyledContainer>
+            {withNav && <Nav />}
+            {children}
+          </StyledContainer>
+        );
       default:
         return children;
     }
@@ -49,10 +61,7 @@ const BasicLayout = ({ children, withNav, withFooter, containerType }) => {
   return (
     <ThemeProvider theme={theme}>
       <Fragment>
-        <StyledContent>
-          {withNav && <Nav />}
-          {getContainer()}
-        </StyledContent>
+        <StyledContent>{getContainer()}</StyledContent>
         {withFooter && <Footer />}
         <GlobalStyle />
       </Fragment>

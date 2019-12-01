@@ -110,7 +110,7 @@ const Footer = () => (
       </li>
     </StyledFooterList>
     <StyledFooterText>
-      {`© Randy Perez 2018-${format(new Date(), 'YYYY')}.  Powered by: `}
+      {`© Randy Perez 2018-${format(new Date(), 'yyyy')}.  Powered by: `}
       <a
         href="https://www.gatsbyjs.org"
         target="_blank"

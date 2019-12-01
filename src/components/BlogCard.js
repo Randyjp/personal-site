@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
-import { format, parse } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 import styled from 'styled-components';
 import { StyledH2 } from '../styles/common';
 
@@ -79,7 +79,7 @@ const BlogCard = ({ blog }) => {
     fields: { slug },
     frontmatter: { title, date, featuredImage, shortDescription },
   } = blog;
-  const formattedDate = format(parse(date), 'MMM D, YYYY');
+  const formattedDate = format(parseISO(date), 'MMM d, yyyy');
   return (
     <Link to={slug}>
       <Card>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { format, parse } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -58,7 +58,7 @@ const BlogPost = ({ data, pageContext }) => {
     frontmatter: { title, date, shortDescription, tags },
   } = data.markdownRemark;
   const { previous, next, slug } = pageContext;
-  const formattedDate = format(parse(date), 'MMM D, YYYY');
+  const formattedDate = format(parseISO(date), 'MMM d, yyyy');
   return (
     <BasicLayout containerType={CONTAINER_TYPE.STANDARD}>
       <React.Fragment>

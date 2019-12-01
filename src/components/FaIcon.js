@@ -60,7 +60,6 @@ const FaIcon = ({
 
   return (
     <Link className={cssClass} activeClassName="is-active" to={url}>
-      {/* adds classname navbar-item to use bulma styles on gatsby links */}
       <Icon dimensions={dimensions}>
         <FontAwesomeIcon icon={icon} size={iconSize} color={color} />
       </Icon>

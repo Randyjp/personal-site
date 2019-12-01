@@ -101,7 +101,7 @@ function useNavBarContext() {
   return context;
 }
 
-function Navbar({ active, children }) {
+function Navbar({ active = false, children }) {
   const [isActive, setActive] = useState(active);
 
   return (
@@ -112,8 +112,8 @@ function Navbar({ active, children }) {
 }
 
 Navbar.propTypes = {
-  active: PropTypes.bool.isRequired,
-  children: PropTypes.element.isRequired,
+  active: PropTypes.bool,
+  children: PropTypes.arrayOf(PropTypes.element).isRequired,
 };
 
 function Brand({ children }) {
@@ -132,7 +132,7 @@ function Menu({ children }) {
 }
 
 Menu.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.arrayOf(PropTypes.element).isRequired,
 };
 
 function Burger() {

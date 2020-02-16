@@ -14,6 +14,11 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     height: 100%;
   }
+  
+  /* overrides prism theme default margins to maintain vertical rhythm */
+  pre[class*="language-"] {
+    margin: 0 0 1rem;
+  }
 `;
 
 const StyledList = styled.ul`

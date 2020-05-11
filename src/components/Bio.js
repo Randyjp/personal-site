@@ -73,23 +73,23 @@ const Bio = () => (
           <p>
             I am a Software Developer from Santo Domingo, Dominican Republic. I
             have been programming for 8+ years and professionally for the last
-            5+ years. Currently, I work for{' '}
+            6+ years. Currently, I work for{' '}
             <OutboundLink
               target="_blank"
               rel="noopener noreferrer"
-              href="http://intellisysdcorp.com"
+              href="https://www.bairesdev.com/"
             >
-              Intellisys
+              BairesDev
             </OutboundLink>{' '}
-            a local outsourcing company that contracts my service to{' '}
+            an international outsourcing company that lends my service to{' '}
             <OutboundLink
               target="_blank"
               rel="noopener noreferrer"
-              href="https://www.soul-cycle.com"
+              href="https://www.pinterest.com/"
             >
-              SoulCycle
+              Pinterest
             </OutboundLink>
-            , a fitness company based in NYC.
+            , a social media company based in San Francisco.
           </p>
         </StyledBioText>
         <StyledBioList>

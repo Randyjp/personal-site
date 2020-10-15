@@ -2,7 +2,7 @@
 title: Nested functional components in React
 author: [RandyPerez]
 date: '2020-10-15'
-shortDescription: 'Why you should never nest your function components and what to do instead.'
+shortDescription: 'Why you should never nest React functional components and what to do instead'
 featuredImage: './dolls.jpg'
 tags: ['web development', 'react', 'javascript']
 ---

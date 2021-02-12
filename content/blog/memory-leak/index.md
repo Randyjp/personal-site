@@ -11,7 +11,7 @@ tags: ['web development', 'react', 'javascript']
 
 I’ve seen this quite a few times: user gets to a page, that page has a component that triggers an asynchronous API call, the user leaves before that call resolves, the API returns, and React tries to update the state... of a component that doesn’t exist anymore.
 
-Here's a little app(it's contrived, I know) to help us visualize the issue. When the user clicks on **mount**, w we’ll make an HTTP call to retrieve a random profile and display the User component on the screen. If we click on **unmount**, we remove the User component from the screen. Nothing exciting here!
+Here's a little app to help us visualize the issue(it's contrived, I know). When the user clicks on **mount**, we’ll make an HTTP call to retrieve a random profile and display the User component on the screen. If we click on **unmount**, we remove the User component from the screen. Nothing exciting here!
 
 ![application displaying random user profile](videofixes.gif)
 
@@ -84,10 +84,11 @@ function User() {
   const isMounted = useRef();
 
   useEffect(() => {
+    // on mount, set ref to true
     if (!isMounted.current) {
       isMounted.current = true;
     }
-
+    // on unmount, set ref to false
     return () => (isMounted.current = false);
   }, []);
   // highlight-end

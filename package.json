@@ -7,7 +7,8 @@
     "start": "npm run develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "lint": "eslint ./*.js"
+    "lint": "eslint ./*.js",
+    "lint-stg": "lint-staged"
   },
   "dependencies": {
     "@babel/polyfill": "^7.7.0",
@@ -31,7 +32,7 @@
     "gatsby-plugin-netlify": "^2.1.27",
     "gatsby-plugin-offline": "^3.10.2",
     "gatsby-plugin-react-helmet": "^3.1.16",
-    "gatsby-plugin-sass": "^2.1.24",
+    "gatsby-plugin-sass": "^3.2.0",
     "gatsby-plugin-sharp": "^2.14.3",
     "gatsby-plugin-styled-components": "^3.1.14",
     "gatsby-plugin-typography": "^2.3.18",
@@ -44,42 +45,36 @@
     "gatsby-transformer-remark": "^2.16.1",
     "gatsby-transformer-sharp": "^2.3.6",
     "lodash": "^4.17.21",
-    "node-sass": "^4.13.0",
-    "npm": "^6.13.1",
+    "node-sass": "^5.0.0",
+    "npm": "^7.6.0",
     "prismjs": "^1.17.1",
     "prop-types": "^15.6.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-helmet": "^5.2.0",
+    "react-helmet": "^6.1.0",
     "react-share": "^3.0.1",
     "react-typography": "^0.16.18",
     "run": "^1.4.0",
-    "styled-components": "^4.4.1",
+    "styled-components": "^5.2.1",
     "styled-components-breakpoint": "^2.1.1",
     "typography": "^0.16.18"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
-    "eslint": "^6.7.2",
+    "eslint": "^7.21.0",
     "eslint-config-airbnb": "^18.0.0",
-    "eslint-config-prettier": "^6.7.0",
+    "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.17.0",
-    "husky": "^3.1.0",
-    "lint-staged": "^9.5.0",
-    "prettier": "^1.19.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "husky": "^5.1.1",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1"
   },
   "lint-staged": {
     "*.js": "eslint",
     "**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx)": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   }
 }

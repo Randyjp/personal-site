@@ -72,24 +72,16 @@ const Bio = () => (
           <h3>Randy Perez</h3>
           <p>
             I am a Software Developer from Santo Domingo, Dominican Republic. I
-            have been programming for 8+ years and professionally for the last
-            6+ years. Currently, I work for{' '}
+            have been programming for 10+ years and professionally for the last
+            8+ years. Currently, I work for{' '}
             <OutboundLink
               target="_blank"
               rel="noopener noreferrer"
-              href="https://www.bairesdev.com/"
+              href="https://www.fast.co/"
             >
-              BairesDev
+              Fast
             </OutboundLink>{' '}
-            an international outsourcing company that lends my service to{' '}
-            <OutboundLink
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.pinterest.com/"
-            >
-              Pinterest
-            </OutboundLink>
-            , a social media company based in San Francisco.
+            a San Francisco based startup.
           </p>
         </StyledBioText>
         <StyledBioList>

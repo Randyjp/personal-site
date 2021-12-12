@@ -73,7 +73,7 @@ const Bio = () => (
           <p>
             I am a Software Developer from Santo Domingo, Dominican Republic. I
             have been programming for 10+ years and professionally for the last
-            8+ years. Currently, I work for{' '}
+            8+ years. I work at{' '}
             <OutboundLink
               target="_blank"
               rel="noopener noreferrer"
@@ -81,7 +81,7 @@ const Bio = () => (
             >
               Fast
             </OutboundLink>{' '}
-            a San Francisco based startup.
+            ,a San Francisco based startup.
           </p>
         </StyledBioText>
         <StyledBioList>

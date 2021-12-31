@@ -133,7 +133,7 @@ const About = ({ data }) => {
               If you would like to share any proposal that matches my interests,
               have a project idea, suggestion, or just feel like talking about
               sports and/or code don&#39;t hesitate to{' '}
-              <Link to="contact">contact me</Link>.
+              <Link to="/contact">contact me</Link>.
             </p>
           </section>
         </StyledArticle>
